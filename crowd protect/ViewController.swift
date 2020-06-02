@@ -7,14 +7,28 @@
 //
 
 import UIKit
+import Photos
 
 class ViewController: UIViewController {
 
+    let editorVC = EditingViewController()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        editorVC.willMove(toParent: self)
+        view.addSubview(editorVC.view)
+        addChild(editorVC)
+        editorVC.didMove(toParent: self)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
+        let input = PHContentEditingInput()
+        let image = UIImage(named: "testA")!
+
+        editorVC.startContentEditing(with: input, placeholderImage: image)
+    }
 }
 
