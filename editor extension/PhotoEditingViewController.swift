@@ -17,20 +17,15 @@ class PhotoEditingViewController: UIViewController, PHContentEditingController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        abort()
 
-//        editorVC.willMove(toParent: self)
-//        view.addSubview(editorVC.view)
-//        addChild(editorVC)
-//        editorVC.didMove(toParent: self)
-//
-//        editorVC.view.snp.makeConstraints { (make) in
-//            make.edges.equalToSuperview()
-//        }
+        editorVC.willMove(toParent: self)
+        view.addSubview(editorVC.view)
+        addChild(editorVC)
+        editorVC.didMove(toParent: self)
 
-        let foo = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
-        foo.backgroundColor = .magenta
-        view.addSubview(foo)
+        editorVC.view.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
 
         view.backgroundColor = .green
     }

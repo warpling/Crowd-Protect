@@ -12,11 +12,11 @@ import PhotosUI
 
 class EditingViewController : UIViewController {
 
-    var metalImageView: MetalImageView!
+    var imageView: EditingImageView!
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        metalImageView = MetalImageView(frame: .zero)
+        imageView = EditingImageView(frame: .zero)
     }
 
     required init?(coder: NSCoder) {
@@ -25,9 +25,8 @@ class EditingViewController : UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .magenta
-        view.addSubview(metalImageView)
-        metalImageView.frame = view.bounds
+        view.addSubview(imageView)
+        imageView.frame = view.bounds
     }
     
 
@@ -50,7 +49,7 @@ class EditingViewController : UIViewController {
         input = contentEditingInput
 
         // TODO: pass contentEditingInput
-        metalImageView.setImage(UIImage(named: "testA")!)//contentEditingInput.displaySizeImage
+        imageView.image = UIImage(named: "testA")!//contentEditingInput.displaySizeImage
     }
 
     func finishContentEditing(completionHandler: @escaping ((PHContentEditingOutput?) -> Void)) {
