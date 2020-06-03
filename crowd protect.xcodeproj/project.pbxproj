@@ -21,7 +21,6 @@
 		DC3D216124867CDA004AEA82 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D216024867CDA004AEA82 /* EditingViewController.swift */; };
 		DC3D216224867E25004AEA82 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D216024867CDA004AEA82 /* EditingViewController.swift */; };
 		DC3D216B24868FD9004AEA82 /* TestImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3D216A24868FD9004AEA82 /* TestImages.xcassets */; };
-		DC531DC42487E69600DED632 /* ExtensionInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC531DC32487E69600DED632 /* ExtensionInterface.storyboard */; };
 		DC531DD92487FAFE00DED632 /* TestImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3D216A24868FD9004AEA82 /* TestImages.xcassets */; };
 		DC531DDB2487FCCC00DED632 /* EditingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC531DDA2487FCCC00DED632 /* EditingImageView.swift */; };
 		DC531DDC2487FD4F00DED632 /* EditingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC531DDA2487FCCC00DED632 /* EditingImageView.swift */; };
@@ -73,7 +72,6 @@
 		DC3D2158248679E6004AEA82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC3D216024867CDA004AEA82 /* EditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
 		DC3D216A24868FD9004AEA82 /* TestImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TestImages.xcassets; sourceTree = "<group>"; };
-		DC531DC32487E69600DED632 /* ExtensionInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExtensionInterface.storyboard; sourceTree = "<group>"; };
 		DC531DDA2487FCCC00DED632 /* EditingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingImageView.swift; sourceTree = "<group>"; };
 		DCB8577724869944009E0C26 /* MetalImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalImageView.swift; sourceTree = "<group>"; };
 		FE1E4EC9F52AB571F70FFE4B /* Pods_editor_extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_editor_extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,7 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				DC3D2153248679E6004AEA82 /* PhotoEditingViewController.swift */,
-				DC531DC32487E69600DED632 /* ExtensionInterface.storyboard */,
 				DC3D2158248679E6004AEA82 /* Info.plist */,
 			);
 			path = "editor extension";
@@ -272,7 +269,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC531DC42487E69600DED632 /* ExtensionInterface.storyboard in Resources */,
 				DC531DD92487FAFE00DED632 /* TestImages.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
