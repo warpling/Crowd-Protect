@@ -1,0 +1,6 @@
+framework module Pods_crowd_protect {
+  umbrella header "Pods-crowd protect-umbrella.h"
+
+  export *
+  module * { export * }
+}
