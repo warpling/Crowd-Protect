@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1100"
+   LastUpgradeVersion = "1150"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C02B23006E7A25510A180C206B70DC70"
-               BuildableName = "Pods_editor_extension.framework"
-               BlueprintName = "Pods-editor extension"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "DC3D213024867882004AEA82"
+               BuildableName = "Crowd Protect.app"
+               BlueprintName = "Crowd Protect"
+               ReferencedContainer = "container:Crowd Protect.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,6 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "DC3D213024867882004AEA82"
+            BuildableName = "Crowd Protect.app"
+            BlueprintName = "Crowd Protect"
+            ReferencedContainer = "container:Crowd Protect.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -47,6 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "DC3D213024867882004AEA82"
+            BuildableName = "Crowd Protect.app"
+            BlueprintName = "Crowd Protect"
+            ReferencedContainer = "container:Crowd Protect.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

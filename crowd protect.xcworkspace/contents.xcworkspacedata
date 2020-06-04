@@ -2,9 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:crowd protect.xcodeproj">
+      location = "group:/Users/ryanmcleod/Code/crowd protect/Crowd Protect.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Crowd Protect.xcodeproj">
    </FileRef>
 </Workspace>

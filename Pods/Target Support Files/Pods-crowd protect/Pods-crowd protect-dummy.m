@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_crowd_protect : NSObject
+@interface PodsDummy_Pods_Crowd_Protect : NSObject
 @end
-@implementation PodsDummy_Pods_crowd_protect
+@implementation PodsDummy_Pods_Crowd_Protect
 @end

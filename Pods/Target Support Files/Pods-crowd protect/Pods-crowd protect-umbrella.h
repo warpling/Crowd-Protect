@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_crowd_protectVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_crowd_protectVersionString[];
+FOUNDATION_EXPORT double Pods_Crowd_ProtectVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_Crowd_ProtectVersionString[];
 

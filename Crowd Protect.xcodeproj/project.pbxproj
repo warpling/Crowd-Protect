@@ -7,36 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4AC2B4E7BFBC1B4791161932 /* Pods_crowd_protect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DDF8D8F9CFFD24854C2250 /* Pods_crowd_protect.framework */; };
-		66FD3627279060FE027D1801 /* Pods_editor_extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1E4EC9F52AB571F70FFE4B /* Pods_editor_extension.framework */; };
+		56FA1F19186A16B45E8574A5 /* Pods_Crowd_Protect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E48AB2535F9B8BC78C3CE8E /* Pods_Crowd_Protect.framework */; };
 		DC3D213524867882004AEA82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D213424867882004AEA82 /* AppDelegate.swift */; };
 		DC3D213724867882004AEA82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D213624867882004AEA82 /* SceneDelegate.swift */; };
 		DC3D213924867882004AEA82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D213824867882004AEA82 /* ViewController.swift */; };
 		DC3D213E2486788A004AEA82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3D213D2486788A004AEA82 /* Assets.xcassets */; };
 		DC3D21412486788A004AEA82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC3D213F2486788A004AEA82 /* LaunchScreen.storyboard */; };
-		DC3D214F248679E6004AEA82 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3D214E248679E6004AEA82 /* PhotosUI.framework */; };
-		DC3D2151248679E6004AEA82 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3D2150248679E6004AEA82 /* Photos.framework */; };
-		DC3D2154248679E6004AEA82 /* PhotoEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D2153248679E6004AEA82 /* PhotoEditingViewController.swift */; };
-		DC3D215B248679E6004AEA82 /* editor extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DC3D214C248679E6004AEA82 /* editor extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DC3D216124867CDA004AEA82 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D216024867CDA004AEA82 /* EditingViewController.swift */; };
-		DC3D216224867E25004AEA82 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D216024867CDA004AEA82 /* EditingViewController.swift */; };
 		DC3D216B24868FD9004AEA82 /* TestImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3D216A24868FD9004AEA82 /* TestImages.xcassets */; };
-		DC531DD92487FAFE00DED632 /* TestImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3D216A24868FD9004AEA82 /* TestImages.xcassets */; };
-		DC531DDB2487FCCC00DED632 /* EditingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC531DDA2487FCCC00DED632 /* EditingImageView.swift */; };
 		DC531DDC2487FD4F00DED632 /* EditingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC531DDA2487FCCC00DED632 /* EditingImageView.swift */; };
 		DCB8577824869944009E0C26 /* MetalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB8577724869944009E0C26 /* MetalImageView.swift */; };
-		DCB8577924869A7A009E0C26 /* MetalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB8577724869944009E0C26 /* MetalImageView.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		DC3D2159248679E6004AEA82 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DC3D212924867882004AEA82 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DC3D214B248679E6004AEA82;
-			remoteInfo = "editor extension";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		DC3D215F248679E6004AEA82 /* Embed App Extensions */ = {
@@ -45,7 +26,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				DC3D215B248679E6004AEA82 /* editor extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,24 +36,23 @@
 		05F5D6BB9BFC44776BCB7219 /* Pods-crowd protect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crowd protect.debug.xcconfig"; path = "Target Support Files/Pods-crowd protect/Pods-crowd protect.debug.xcconfig"; sourceTree = "<group>"; };
 		40A9644741F133CB61FD02DB /* Pods-editor extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-editor extension.release.xcconfig"; path = "Target Support Files/Pods-editor extension/Pods-editor extension.release.xcconfig"; sourceTree = "<group>"; };
 		4FF87C23129384795BDA2BFE /* Pods-crowd protect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crowd protect.release.xcconfig"; path = "Target Support Files/Pods-crowd protect/Pods-crowd protect.release.xcconfig"; sourceTree = "<group>"; };
+		6E48AB2535F9B8BC78C3CE8E /* Pods_Crowd_Protect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crowd_Protect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7536794772D05AC53A4603BF /* Pods-editor extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-editor extension.debug.xcconfig"; path = "Target Support Files/Pods-editor extension/Pods-editor extension.debug.xcconfig"; sourceTree = "<group>"; };
-		D7DDF8D8F9CFFD24854C2250 /* Pods_crowd_protect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_crowd_protect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC3D213124867882004AEA82 /* crowd protect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "crowd protect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FEBDD262DA3712C3B3ED556 /* Pods-Crowd Protect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowd Protect.debug.xcconfig"; path = "Target Support Files/Pods-Crowd Protect/Pods-Crowd Protect.debug.xcconfig"; sourceTree = "<group>"; };
+		DC3D213124867882004AEA82 /* Crowd Protect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crowd Protect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC3D213424867882004AEA82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC3D213624867882004AEA82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DC3D213824867882004AEA82 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DC3D213D2486788A004AEA82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC3D21402486788A004AEA82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC3D21422486788A004AEA82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC3D214C248679E6004AEA82 /* editor extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "editor extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC3D214E248679E6004AEA82 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		DC3D2150248679E6004AEA82 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
-		DC3D2153248679E6004AEA82 /* PhotoEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditingViewController.swift; sourceTree = "<group>"; };
-		DC3D2158248679E6004AEA82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC3D216024867CDA004AEA82 /* EditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
 		DC3D216A24868FD9004AEA82 /* TestImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TestImages.xcassets; sourceTree = "<group>"; };
 		DC531DDA2487FCCC00DED632 /* EditingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingImageView.swift; sourceTree = "<group>"; };
 		DCB8577724869944009E0C26 /* MetalImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalImageView.swift; sourceTree = "<group>"; };
+		DD49B3E94C5FC1F06E3B8534 /* Pods-Crowd Protect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowd Protect.release.xcconfig"; path = "Target Support Files/Pods-Crowd Protect/Pods-Crowd Protect.release.xcconfig"; sourceTree = "<group>"; };
 		FE1E4EC9F52AB571F70FFE4B /* Pods_editor_extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_editor_extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -82,17 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AC2B4E7BFBC1B4791161932 /* Pods_crowd_protect.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC3D2149248679E6004AEA82 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DC3D214F248679E6004AEA82 /* PhotosUI.framework in Frameworks */,
-				DC3D2151248679E6004AEA82 /* Photos.framework in Frameworks */,
-				66FD3627279060FE027D1801 /* Pods_editor_extension.framework in Frameworks */,
+				56FA1F19186A16B45E8574A5 /* Pods_Crowd_Protect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,8 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				DC3D216324868157004AEA82 /* Shared */,
-				DC3D213324867882004AEA82 /* crowd protect */,
-				DC3D2152248679E6004AEA82 /* editor extension */,
+				DC3D213324867882004AEA82 /* Crowd Protect */,
 				DC3D214D248679E6004AEA82 /* Frameworks */,
 				DC3D213224867882004AEA82 /* Products */,
 				FA18AC5D46501D16D0501749 /* Pods */,
@@ -114,13 +82,12 @@
 		DC3D213224867882004AEA82 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DC3D213124867882004AEA82 /* crowd protect.app */,
-				DC3D214C248679E6004AEA82 /* editor extension.appex */,
+				DC3D213124867882004AEA82 /* Crowd Protect.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DC3D213324867882004AEA82 /* crowd protect */ = {
+		DC3D213324867882004AEA82 /* Crowd Protect */ = {
 			isa = PBXGroup;
 			children = (
 				DC3D213424867882004AEA82 /* AppDelegate.swift */,
@@ -130,7 +97,7 @@
 				DC3D213F2486788A004AEA82 /* LaunchScreen.storyboard */,
 				DC3D21422486788A004AEA82 /* Info.plist */,
 			);
-			path = "crowd protect";
+			path = "Crowd Protect";
 			sourceTree = "<group>";
 		};
 		DC3D214D248679E6004AEA82 /* Frameworks */ = {
@@ -138,19 +105,10 @@
 			children = (
 				DC3D214E248679E6004AEA82 /* PhotosUI.framework */,
 				DC3D2150248679E6004AEA82 /* Photos.framework */,
-				D7DDF8D8F9CFFD24854C2250 /* Pods_crowd_protect.framework */,
 				FE1E4EC9F52AB571F70FFE4B /* Pods_editor_extension.framework */,
+				6E48AB2535F9B8BC78C3CE8E /* Pods_Crowd_Protect.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DC3D2152248679E6004AEA82 /* editor extension */ = {
-			isa = PBXGroup;
-			children = (
-				DC3D2153248679E6004AEA82 /* PhotoEditingViewController.swift */,
-				DC3D2158248679E6004AEA82 /* Info.plist */,
-			);
-			path = "editor extension";
 			sourceTree = "<group>";
 		};
 		DC3D216324868157004AEA82 /* Shared */ = {
@@ -171,6 +129,8 @@
 				4FF87C23129384795BDA2BFE /* Pods-crowd protect.release.xcconfig */,
 				7536794772D05AC53A4603BF /* Pods-editor extension.debug.xcconfig */,
 				40A9644741F133CB61FD02DB /* Pods-editor extension.release.xcconfig */,
+				7FEBDD262DA3712C3B3ED556 /* Pods-Crowd Protect.debug.xcconfig */,
+				DD49B3E94C5FC1F06E3B8534 /* Pods-Crowd Protect.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -178,9 +138,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DC3D213024867882004AEA82 /* crowd protect */ = {
+		DC3D213024867882004AEA82 /* Crowd Protect */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC3D21452486788A004AEA82 /* Build configuration list for PBXNativeTarget "crowd protect" */;
+			buildConfigurationList = DC3D21452486788A004AEA82 /* Build configuration list for PBXNativeTarget "Crowd Protect" */;
 			buildPhases = (
 				925603383CC43671ECCF7647 /* [CP] Check Pods Manifest.lock */,
 				DC3D212D24867882004AEA82 /* Sources */,
@@ -192,30 +152,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				DC3D215A248679E6004AEA82 /* PBXTargetDependency */,
 			);
-			name = "crowd protect";
+			name = "Crowd Protect";
 			productName = "crowd protect";
-			productReference = DC3D213124867882004AEA82 /* crowd protect.app */;
+			productReference = DC3D213124867882004AEA82 /* Crowd Protect.app */;
 			productType = "com.apple.product-type.application";
-		};
-		DC3D214B248679E6004AEA82 /* editor extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DC3D215C248679E6004AEA82 /* Build configuration list for PBXNativeTarget "editor extension" */;
-			buildPhases = (
-				11FCD8C19CB7BC8FFE11B74A /* [CP] Check Pods Manifest.lock */,
-				DC3D2148248679E6004AEA82 /* Sources */,
-				DC3D2149248679E6004AEA82 /* Frameworks */,
-				DC3D214A248679E6004AEA82 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "editor extension";
-			productName = "editor extension";
-			productReference = DC3D214C248679E6004AEA82 /* editor extension.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -230,12 +171,9 @@
 					DC3D213024867882004AEA82 = {
 						CreatedOnToolsVersion = 11.5;
 					};
-					DC3D214B248679E6004AEA82 = {
-						CreatedOnToolsVersion = 11.5;
-					};
 				};
 			};
-			buildConfigurationList = DC3D212C24867882004AEA82 /* Build configuration list for PBXProject "crowd protect" */;
+			buildConfigurationList = DC3D212C24867882004AEA82 /* Build configuration list for PBXProject "Crowd Protect" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -248,8 +186,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DC3D213024867882004AEA82 /* crowd protect */,
-				DC3D214B248679E6004AEA82 /* editor extension */,
+				DC3D213024867882004AEA82 /* Crowd Protect */,
 			);
 		};
 /* End PBXProject section */
@@ -265,54 +202,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DC3D214A248679E6004AEA82 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DC531DD92487FAFE00DED632 /* TestImages.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		11FCD8C19CB7BC8FFE11B74A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-editor extension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3F5E01A10DD9941DDED268C6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-crowd protect/Pods-crowd protect-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Crowd Protect/Pods-Crowd Protect-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-crowd protect/Pods-crowd protect-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Crowd Protect/Pods-Crowd Protect-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-crowd protect/Pods-crowd protect-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Crowd Protect/Pods-Crowd Protect-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		925603383CC43671ECCF7647 /* [CP] Check Pods Manifest.lock */ = {
@@ -330,7 +237,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-crowd protect-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Crowd Protect-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -353,26 +260,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DC3D2148248679E6004AEA82 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DCB8577924869A7A009E0C26 /* MetalImageView.swift in Sources */,
-				DC3D216224867E25004AEA82 /* EditingViewController.swift in Sources */,
-				DC3D2154248679E6004AEA82 /* PhotoEditingViewController.swift in Sources */,
-				DC531DDB2487FCCC00DED632 /* EditingImageView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		DC3D215A248679E6004AEA82 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DC3D214B248679E6004AEA82 /* editor extension */;
-			targetProxy = DC3D2159248679E6004AEA82 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DC3D213F2486788A004AEA82 /* LaunchScreen.storyboard */ = {
@@ -502,13 +390,13 @@
 		};
 		DC3D21462486788A004AEA82 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05F5D6BB9BFC44776BCB7219 /* Pods-crowd protect.debug.xcconfig */;
+			baseConfigurationReference = 7FEBDD262DA3712C3B3ED556 /* Pods-Crowd Protect.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JVBMY6T275;
-				INFOPLIST_FILE = "crowd protect/Info.plist";
+				INFOPLIST_FILE = "Crowd Protect/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -523,13 +411,13 @@
 		};
 		DC3D21472486788A004AEA82 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FF87C23129384795BDA2BFE /* Pods-crowd protect.release.xcconfig */;
+			baseConfigurationReference = DD49B3E94C5FC1F06E3B8534 /* Pods-Crowd Protect.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JVBMY6T275;
-				INFOPLIST_FILE = "crowd protect/Info.plist";
+				INFOPLIST_FILE = "Crowd Protect/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -542,52 +430,10 @@
 			};
 			name = Release;
 		};
-		DC3D215D248679E6004AEA82 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7536794772D05AC53A4603BF /* Pods-editor extension.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JVBMY6T275;
-				INFOPLIST_FILE = "editor extension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.growpixel.crowd-protect.editor-extension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		DC3D215E248679E6004AEA82 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40A9644741F133CB61FD02DB /* Pods-editor extension.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JVBMY6T275;
-				INFOPLIST_FILE = "editor extension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.growpixel.crowd-protect.editor-extension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DC3D212C24867882004AEA82 /* Build configuration list for PBXProject "crowd protect" */ = {
+		DC3D212C24867882004AEA82 /* Build configuration list for PBXProject "Crowd Protect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC3D21432486788A004AEA82 /* Debug */,
@@ -596,20 +442,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC3D21452486788A004AEA82 /* Build configuration list for PBXNativeTarget "crowd protect" */ = {
+		DC3D21452486788A004AEA82 /* Build configuration list for PBXNativeTarget "Crowd Protect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC3D21462486788A004AEA82 /* Debug */,
 				DC3D21472486788A004AEA82 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DC3D215C248679E6004AEA82 /* Build configuration list for PBXNativeTarget "editor extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DC3D215D248679E6004AEA82 /* Debug */,
-				DC3D215E248679E6004AEA82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

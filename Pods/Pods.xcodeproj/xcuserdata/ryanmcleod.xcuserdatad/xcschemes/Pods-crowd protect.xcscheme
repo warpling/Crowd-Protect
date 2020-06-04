@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F074D4E473E17B79E0ACCF7F21806055"
-               BuildableName = "Pods_crowd_protect.framework"
-               BlueprintName = "Pods-crowd protect"
+               BlueprintIdentifier = "DDBFFD3E168D3A887C70F95AE40428B9"
+               BuildableName = "Pods_Crowd_Protect.framework"
+               BlueprintName = "Pods-Crowd Protect"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

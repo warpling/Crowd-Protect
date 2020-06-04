@@ -1,6 +1,0 @@
-framework module Pods_editor_extension {
-  umbrella header "Pods-editor extension-umbrella.h"
-
-  export *
-  module * { export * }
-}
