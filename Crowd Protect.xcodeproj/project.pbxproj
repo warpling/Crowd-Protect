@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E5AC36524893D8900E6B00A /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2E22489304F00F1E3D3 /* Configurable.swift */; };
 		56FA1F19186A16B45E8574A5 /* Pods_Crowd_Protect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E48AB2535F9B8BC78C3CE8E /* Pods_Crowd_Protect.framework */; };
 		DC3D213524867882004AEA82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D213424867882004AEA82 /* AppDelegate.swift */; };
 		DC3D213724867882004AEA82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D213624867882004AEA82 /* SceneDelegate.swift */; };
@@ -282,6 +283,7 @@
 				DC3D213724867882004AEA82 /* SceneDelegate.swift in Sources */,
 				DC3D216124867CDA004AEA82 /* PhotoEditingViewController.swift in Sources */,
 				DC87B2DA24892CA700F1E3D3 /* OnboardingViewController.swift in Sources */,
+				3E5AC36524893D8900E6B00A /* Configurable.swift in Sources */,
 				DC87B2E02489301400F1E3D3 /* NavigationBar.swift in Sources */,
 				DC87B2DE24892FAD00F1E3D3 /* ButtonBar.swift in Sources */,
 				DCB8577824869944009E0C26 /* MetalImageView.swift in Sources */,
