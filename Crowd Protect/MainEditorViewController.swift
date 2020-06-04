@@ -13,6 +13,8 @@ class MainEditorViewController: UIViewController {
 
     let editorVC = PhotoEditingViewController()
 
+    let nav = NavigationBar()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +22,12 @@ class MainEditorViewController: UIViewController {
         view.addSubview(editorVC.view)
         addChild(editorVC)
         editorVC.didMove(toParent: self)
+
+        view.addSubview(nav)
+        nav.snp.makeConstraints { (make) in
+            make.leading.top.trailing.equalToSuperview()
+            make.height.greaterThanOrEqualTo(100)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

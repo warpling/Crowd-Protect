@@ -16,6 +16,7 @@
 		DC0C4612248A5C3800B7C558 /* MediaEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4611248A5C3800B7C558 /* MediaEditable.swift */; };
 		DC0C4614248A5C9300B7C558 /* Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4613248A5C9300B7C558 /* Edit.swift */; };
 		DC0C4616248A5CF100B7C558 /* VideoEdits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4615248A5CF100B7C558 /* VideoEdits.swift */; };
+		DC0C460B2489554E00B7C558 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C460A2489554E00B7C558 /* MainNavigationController.swift */; };
 		DC3D213524867882004AEA82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D213424867882004AEA82 /* AppDelegate.swift */; };
 		DC3D213924867882004AEA82 /* MainEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D213824867882004AEA82 /* MainEditorViewController.swift */; };
 		DC3D213E2486788A004AEA82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3D213D2486788A004AEA82 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		DC87B2DE24892FAD00F1E3D3 /* ButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2DD24892FAD00F1E3D3 /* ButtonBar.swift */; };
 		DC87B2E02489301400F1E3D3 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2DF2489301400F1E3D3 /* NavigationBar.swift */; };
 		DC87B2E42489307200F1E3D3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2E32489307200F1E3D3 /* Constants.swift */; };
+		DC87B2E624893D9200F1E3D3 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2E22489304F00F1E3D3 /* Configurable.swift */; };
 		DCB8577824869944009E0C26 /* MetalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB8577724869944009E0C26 /* MetalImageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +70,7 @@
 		DC0C4611248A5C3800B7C558 /* MediaEditable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaEditable.swift; sourceTree = "<group>"; };
 		DC0C4613248A5C9300B7C558 /* Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edit.swift; sourceTree = "<group>"; };
 		DC0C4615248A5CF100B7C558 /* VideoEdits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEdits.swift; sourceTree = "<group>"; };
+		DC0C460A2489554E00B7C558 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainNavigationController.swift; path = "../../../Crowd Protect/Shared/Navigation/MainNavigationController.swift"; sourceTree = "<group>"; };
 		DC3D213124867882004AEA82 /* Crowd Protect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crowd Protect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC3D213424867882004AEA82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC3D213824867882004AEA82 /* MainEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEditorViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				DC87B2DD24892FAD00F1E3D3 /* ButtonBar.swift */,
+				DC0C460A2489554E00B7C558 /* MainNavigationController.swift */,
 				DC87B2DF2489301400F1E3D3 /* NavigationBar.swift */,
 			);
 			path = Navigation;
@@ -379,6 +383,7 @@
 				DC3D213924867882004AEA82 /* MainEditorViewController.swift in Sources */,
 				DC0C4610248A5C2500B7C558 /* ImageEdits.swift in Sources */,
 				DC0C4614248A5C9300B7C558 /* Edit.swift in Sources */,
+				DC0C460B2489554E00B7C558 /* MainNavigationController.swift in Sources */,
 				DC87B2E42489307200F1E3D3 /* Constants.swift in Sources */,
 				DC3D213524867882004AEA82 /* AppDelegate.swift in Sources */,
 				DC0C4612248A5C3800B7C558 /* MediaEditable.swift in Sources */,
@@ -386,6 +391,8 @@
 				DC0C4616248A5CF100B7C558 /* VideoEdits.swift in Sources */,
 				3E5AC36524893D8900E6B00A /* Configurable.swift in Sources */,
 				DC0C460E248A5BCE00B7C558 /* Editable.swift in Sources */,
+				DC87B2DA24892CA700F1E3D3 /* OnboardingViewController.swift in Sources */,
+				DC87B2E624893D9200F1E3D3 /* Configurable.swift in Sources */,
 				DC87B2E02489301400F1E3D3 /* NavigationBar.swift in Sources */,
 				DC87B2DE24892FAD00F1E3D3 /* ButtonBar.swift in Sources */,
 				DCB8577824869944009E0C26 /* MetalImageView.swift in Sources */,

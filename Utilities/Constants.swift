@@ -6,7 +6,7 @@
 //  Copyright © 2020 Grow Pixel. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Constants {
     struct Colors {
