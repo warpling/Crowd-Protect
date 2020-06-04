@@ -10,12 +10,17 @@
 		56FA1F19186A16B45E8574A5 /* Pods_Crowd_Protect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E48AB2535F9B8BC78C3CE8E /* Pods_Crowd_Protect.framework */; };
 		DC3D213524867882004AEA82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D213424867882004AEA82 /* AppDelegate.swift */; };
 		DC3D213724867882004AEA82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D213624867882004AEA82 /* SceneDelegate.swift */; };
-		DC3D213924867882004AEA82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D213824867882004AEA82 /* ViewController.swift */; };
+		DC3D213924867882004AEA82 /* MainEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D213824867882004AEA82 /* MainEditorViewController.swift */; };
 		DC3D213E2486788A004AEA82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3D213D2486788A004AEA82 /* Assets.xcassets */; };
 		DC3D21412486788A004AEA82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC3D213F2486788A004AEA82 /* LaunchScreen.storyboard */; };
-		DC3D216124867CDA004AEA82 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D216024867CDA004AEA82 /* EditingViewController.swift */; };
+		DC3D216124867CDA004AEA82 /* PhotoEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D216024867CDA004AEA82 /* PhotoEditingViewController.swift */; };
 		DC3D216B24868FD9004AEA82 /* TestImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3D216A24868FD9004AEA82 /* TestImages.xcassets */; };
 		DC531DDC2487FD4F00DED632 /* EditingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC531DDA2487FCCC00DED632 /* EditingImageView.swift */; };
+		DC87B2DA24892CA700F1E3D3 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2D924892CA700F1E3D3 /* OnboardingViewController.swift */; };
+		DC87B2DC24892CBC00F1E3D3 /* MediaPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2DB24892CBC00F1E3D3 /* MediaPickerViewController.swift */; };
+		DC87B2DE24892FAD00F1E3D3 /* ButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2DD24892FAD00F1E3D3 /* ButtonBar.swift */; };
+		DC87B2E02489301400F1E3D3 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2DF2489301400F1E3D3 /* NavigationBar.swift */; };
+		DC87B2E42489307200F1E3D3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2E32489307200F1E3D3 /* Constants.swift */; };
 		DCB8577824869944009E0C26 /* MetalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB8577724869944009E0C26 /* MetalImageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,15 +47,21 @@
 		DC3D213124867882004AEA82 /* Crowd Protect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crowd Protect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC3D213424867882004AEA82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC3D213624867882004AEA82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DC3D213824867882004AEA82 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DC3D213824867882004AEA82 /* MainEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEditorViewController.swift; sourceTree = "<group>"; };
 		DC3D213D2486788A004AEA82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC3D21402486788A004AEA82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC3D21422486788A004AEA82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC3D214E248679E6004AEA82 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		DC3D2150248679E6004AEA82 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
-		DC3D216024867CDA004AEA82 /* EditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
+		DC3D216024867CDA004AEA82 /* PhotoEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditingViewController.swift; sourceTree = "<group>"; };
 		DC3D216A24868FD9004AEA82 /* TestImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TestImages.xcassets; sourceTree = "<group>"; };
 		DC531DDA2487FCCC00DED632 /* EditingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingImageView.swift; sourceTree = "<group>"; };
+		DC87B2D924892CA700F1E3D3 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		DC87B2DB24892CBC00F1E3D3 /* MediaPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPickerViewController.swift; sourceTree = "<group>"; };
+		DC87B2DD24892FAD00F1E3D3 /* ButtonBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBar.swift; sourceTree = "<group>"; };
+		DC87B2DF2489301400F1E3D3 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		DC87B2E22489304F00F1E3D3 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
+		DC87B2E32489307200F1E3D3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DCB8577724869944009E0C26 /* MetalImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalImageView.swift; sourceTree = "<group>"; };
 		DD49B3E94C5FC1F06E3B8534 /* Pods-Crowd Protect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowd Protect.release.xcconfig"; path = "Target Support Files/Pods-Crowd Protect/Pods-Crowd Protect.release.xcconfig"; sourceTree = "<group>"; };
 		FE1E4EC9F52AB571F70FFE4B /* Pods_editor_extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_editor_extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +84,7 @@
 			children = (
 				DC3D216324868157004AEA82 /* Shared */,
 				DC3D213324867882004AEA82 /* Crowd Protect */,
+				DC87B2E12489303C00F1E3D3 /* Utilities */,
 				DC3D214D248679E6004AEA82 /* Frameworks */,
 				DC3D213224867882004AEA82 /* Products */,
 				FA18AC5D46501D16D0501749 /* Pods */,
@@ -91,8 +103,13 @@
 			isa = PBXGroup;
 			children = (
 				DC3D213424867882004AEA82 /* AppDelegate.swift */,
+				DC87B2E32489307200F1E3D3 /* Constants.swift */,
 				DC3D213624867882004AEA82 /* SceneDelegate.swift */,
-				DC3D213824867882004AEA82 /* ViewController.swift */,
+				DC3D213824867882004AEA82 /* MainEditorViewController.swift */,
+				DC87B2D924892CA700F1E3D3 /* OnboardingViewController.swift */,
+				DC87B2DB24892CBC00F1E3D3 /* MediaPickerViewController.swift */,
+				DC87B2DD24892FAD00F1E3D3 /* ButtonBar.swift */,
+				DC87B2DF2489301400F1E3D3 /* NavigationBar.swift */,
 				DC3D213D2486788A004AEA82 /* Assets.xcassets */,
 				DC3D213F2486788A004AEA82 /* LaunchScreen.storyboard */,
 				DC3D21422486788A004AEA82 /* Info.plist */,
@@ -115,11 +132,19 @@
 			isa = PBXGroup;
 			children = (
 				DC3D216A24868FD9004AEA82 /* TestImages.xcassets */,
-				DC3D216024867CDA004AEA82 /* EditingViewController.swift */,
+				DC3D216024867CDA004AEA82 /* PhotoEditingViewController.swift */,
 				DCB8577724869944009E0C26 /* MetalImageView.swift */,
 				DC531DDA2487FCCC00DED632 /* EditingImageView.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		DC87B2E12489303C00F1E3D3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				DC87B2E22489304F00F1E3D3 /* Configurable.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		FA18AC5D46501D16D0501749 /* Pods */ = {
@@ -251,12 +276,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC3D213924867882004AEA82 /* ViewController.swift in Sources */,
+				DC3D213924867882004AEA82 /* MainEditorViewController.swift in Sources */,
+				DC87B2E42489307200F1E3D3 /* Constants.swift in Sources */,
 				DC3D213524867882004AEA82 /* AppDelegate.swift in Sources */,
 				DC3D213724867882004AEA82 /* SceneDelegate.swift in Sources */,
-				DC3D216124867CDA004AEA82 /* EditingViewController.swift in Sources */,
+				DC3D216124867CDA004AEA82 /* PhotoEditingViewController.swift in Sources */,
+				DC87B2DA24892CA700F1E3D3 /* OnboardingViewController.swift in Sources */,
+				DC87B2E02489301400F1E3D3 /* NavigationBar.swift in Sources */,
+				DC87B2DE24892FAD00F1E3D3 /* ButtonBar.swift in Sources */,
 				DCB8577824869944009E0C26 /* MetalImageView.swift in Sources */,
 				DC531DDC2487FD4F00DED632 /* EditingImageView.swift in Sources */,
+				DC87B2DC24892CBC00F1E3D3 /* MediaPickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

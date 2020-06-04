@@ -1,5 +1,5 @@
 //
-//  EditingViewController.swift
+//  PhotoEditingViewController.swift
 //  crowd protect
 //
 //  Created by Ryan McLeod on 6/2/20.
@@ -10,7 +10,7 @@ import UIKit
 import Photos
 import PhotosUI
 
-class EditingViewController : UIViewController {
+class PhotoEditingViewController : UIViewController {
 
     var imageView: EditingImageView!
 

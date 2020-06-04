@@ -9,9 +9,9 @@
 import UIKit
 import Photos
 
-class ViewController: UIViewController {
+class MainEditorViewController: UIViewController {
 
-    let editorVC = EditingViewController()
+    let editorVC = PhotoEditingViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()

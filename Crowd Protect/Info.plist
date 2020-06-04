@@ -20,6 +20,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Photos are always processed on your device and are never sent anywhere.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photos are always processed on your device and are never sent anywhere.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
