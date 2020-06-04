@@ -49,7 +49,7 @@ class PhotoEditingViewController : UIViewController {
         input = contentEditingInput
 
         // TODO: pass contentEditingInput
-        imageView.image = UIImage(named: "testA")!//contentEditingInput.displaySizeImage
+        imageView.image = placeholderImage//UIImage(named: "testA")!//contentEditingInput.displaySizeImage
     }
 
     func finishContentEditing(completionHandler: @escaping ((PHContentEditingOutput?) -> Void)) {
