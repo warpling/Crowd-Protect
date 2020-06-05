@@ -21,9 +21,16 @@ class MainEditorViewController: UIViewController {
         addChild(editorVC)
         editorVC.didMove(toParent: self)
 
-        let libraryButton = UIButton { button in
+        let libraryButton = CustomButton { button in
             button.setImage(UIImage(systemName: "photo.on.rectangle"), for: .normal)
+            button.setImageColor(.red, for: .normal)
+            button.setImageColor(.blue, for: .highlighted)
             button.setTitle("Library", for: .normal)
+            button.setTitleColor(.red, for: .normal)
+            button.setTitleColor(.blue, for: .highlighted)
+            
+            button.setBackgroundColor(.green, for: .normal)
+            button.setBackgroundColor(.brown, for: .highlighted)
         }
 
         let shareButton = UIButton { button in

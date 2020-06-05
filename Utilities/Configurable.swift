@@ -1,11 +1,3 @@
-//
-//  Configurable.swift
-//  byte
-//
-//  Created by Pim Coumans on 24/04/2020.
-//  Copyright © 2020 V2. All rights reserved.
-//
-
 import UIKit
 
 /// Adds a `configure` method with a closure that is executed with `Self` as a parameter
