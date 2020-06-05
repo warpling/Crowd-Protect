@@ -15,7 +15,6 @@ class NavigationBar : ButtonBar {
 
     let backButton = UIButton { button in
         button.setImage(UIImage(systemName: "photo.on.rectangle"), for: .normal)
-        button.set
         button.setTitle("Library", for: .normal)
     }
 
