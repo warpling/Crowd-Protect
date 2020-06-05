@@ -19,12 +19,15 @@
 		DC0C4614248A5C9300B7C558 /* Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4613248A5C9300B7C558 /* Edit.swift */; };
 		DC0C4616248A5CF100B7C558 /* VideoEdits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4615248A5CF100B7C558 /* VideoEdits.swift */; };
 		DC0C4618248A74C700B7C558 /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4617248A74C700B7C558 /* Toolbar.swift */; };
+		DC0C461C248A795300B7C558 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C461B248A795300B7C558 /* Buttons.swift */; };
+		DC0C4620248A876F00B7C558 /* UIView+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C461F248A876F00B7C558 /* UIView+Rounded.swift */; };
 		DC3D213524867882004AEA82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D213424867882004AEA82 /* AppDelegate.swift */; };
 		DC3D213924867882004AEA82 /* MainEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D213824867882004AEA82 /* MainEditorViewController.swift */; };
 		DC3D213E2486788A004AEA82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3D213D2486788A004AEA82 /* Assets.xcassets */; };
 		DC3D21412486788A004AEA82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC3D213F2486788A004AEA82 /* LaunchScreen.storyboard */; };
 		DC3D216124867CDA004AEA82 /* PhotoEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D216024867CDA004AEA82 /* PhotoEditingViewController.swift */; };
 		DC3D216B24868FD9004AEA82 /* TestImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3D216A24868FD9004AEA82 /* TestImages.xcassets */; };
+		DC4B1657248A8F6000E9513D /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1656248A8F6000E9513D /* UIColor+Extensions.swift */; };
 		DC531DDC2487FD4F00DED632 /* EditingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC531DDA2487FCCC00DED632 /* EditingImageView.swift */; };
 		DC87B2DE24892FAD00F1E3D3 /* ButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2DD24892FAD00F1E3D3 /* ButtonBar.swift */; };
 		DC87B2E02489301400F1E3D3 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2DF2489301400F1E3D3 /* NavigationBar.swift */; };
@@ -74,6 +77,8 @@
 		DC0C4613248A5C9300B7C558 /* Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edit.swift; sourceTree = "<group>"; };
 		DC0C4615248A5CF100B7C558 /* VideoEdits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEdits.swift; sourceTree = "<group>"; };
 		DC0C4617248A74C700B7C558 /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
+		DC0C461B248A795300B7C558 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		DC0C461F248A876F00B7C558 /* UIView+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Rounded.swift"; sourceTree = "<group>"; };
 		DC3D213124867882004AEA82 /* Crowd Protect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crowd Protect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC3D213424867882004AEA82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC3D213824867882004AEA82 /* MainEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEditorViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +89,7 @@
 		DC3D2150248679E6004AEA82 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		DC3D216024867CDA004AEA82 /* PhotoEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditingViewController.swift; sourceTree = "<group>"; };
 		DC3D216A24868FD9004AEA82 /* TestImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TestImages.xcassets; sourceTree = "<group>"; };
+		DC4B1656248A8F6000E9513D /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		DC531DDA2487FCCC00DED632 /* EditingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingImageView.swift; sourceTree = "<group>"; };
 		DC87B2DD24892FAD00F1E3D3 /* ButtonBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBar.swift; sourceTree = "<group>"; };
 		DC87B2DF2489301400F1E3D3 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
@@ -197,6 +203,9 @@
 		DC87B2E12489303C00F1E3D3 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				DC0C461B248A795300B7C558 /* Buttons.swift */,
+				DC4B1656248A8F6000E9513D /* UIColor+Extensions.swift */,
+				DC0C461F248A876F00B7C558 /* UIView+Rounded.swift */,
 				DC87B2E32489307200F1E3D3 /* Constants.swift */,
 				DC87B2E22489304F00F1E3D3 /* Configurable.swift */,
 			);
@@ -393,8 +402,11 @@
 				DC0C4616248A5CF100B7C558 /* VideoEdits.swift in Sources */,
 				3EA88799248A84A40063971B /* MainNavigationController.swift in Sources */,
 				DC0C4618248A74C700B7C558 /* Toolbar.swift in Sources */,
+				DC4B1657248A8F6000E9513D /* UIColor+Extensions.swift in Sources */,
+				3E5AC36524893D8900E6B00A /* Configurable.swift in Sources */,
 				DC0C460E248A5BCE00B7C558 /* Editable.swift in Sources */,
 				DC87B2E02489301400F1E3D3 /* NavigationBar.swift in Sources */,
+				DC0C4620248A876F00B7C558 /* UIView+Rounded.swift in Sources */,
 				DC87B2DE24892FAD00F1E3D3 /* ButtonBar.swift in Sources */,
 				3E5FFDB8248A915300825D76 /* Buttons.swift in Sources */,
 				DCB8577824869944009E0C26 /* MetalImageView.swift in Sources */,

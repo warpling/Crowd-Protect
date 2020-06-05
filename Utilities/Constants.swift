@@ -11,6 +11,18 @@ import UIKit
 struct Constants {
     struct Colors {
         struct Navigation {
+
+        }
+
+        struct Toolbar {
+            struct Tool {
+
+                static let activeText = UIColor.label
+                static let inactiveText = UIColor.label
+
+                static let activeBackground = UIColor.systemIndigo
+                static let inactiveBackground = UIColor.systemGray4
+            }
         }
     }
 
