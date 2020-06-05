@@ -75,7 +75,7 @@ extension MainEditorViewController: UIImagePickerControllerDelegate & UINavigati
                 print("No image selected")
             return
         }
-        self.editorVC.startContentEditing(with: PHContentEditingInput(), placeholderImage: image)
+        self.editorVC.startEditing(with: image)
         
 //        let requestOptions = PHContentEditingInputRequestOptions()
 //        requestOptions.isNetworkAccessAllowed = true

@@ -13,7 +13,7 @@ class MediaEditable<MediaType> : Editable {
     let media: MediaType
     var edits = [Edit]()
 
-    init(_ media: MediaType) {
+    public init(_ media: MediaType) {
         self.media = media
     }
 

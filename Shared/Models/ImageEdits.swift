@@ -11,10 +11,10 @@ import UIKit
 class ImageEdits: MediaEditable<UIImage> {
 
     override var displayOutput: UIImage {
-        return UIImage()
+        return media
     }
 
     override var finalOutput: UIImage {
-        return UIImage()
+        return media
     }
 }
