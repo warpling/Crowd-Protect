@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		3E5AC36524893D8900E6B00A /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2E22489304F00F1E3D3 /* Configurable.swift */; };
+		3E5AC375248A65C400E6B00A /* ImageEditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5AC374248A65C400E6B00A /* ImageEditTests.swift */; };
+		3E5AC377248A661900E6B00A /* TestImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E5AC376248A661500E6B00A /* TestImages.xcassets */; };
 		56FA1F19186A16B45E8574A5 /* Pods_Crowd_Protect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E48AB2535F9B8BC78C3CE8E /* Pods_Crowd_Protect.framework */; };
 		DC0C460E248A5BCE00B7C558 /* Editable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C460D248A5BCE00B7C558 /* Editable.swift */; };
-		DC0C4610248A5C2500B7C558 /* ImageEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C460F248A5C2500B7C558 /* ImageEditable.swift */; };
+		DC0C4610248A5C2500B7C558 /* ImageEdits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C460F248A5C2500B7C558 /* ImageEdits.swift */; };
 		DC0C4612248A5C3800B7C558 /* MediaEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4611248A5C3800B7C558 /* MediaEditable.swift */; };
 		DC0C4614248A5C9300B7C558 /* Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4613248A5C9300B7C558 /* Edit.swift */; };
-		DC0C4616248A5CF100B7C558 /* VideoEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4615248A5CF100B7C558 /* VideoEditable.swift */; };
+		DC0C4616248A5CF100B7C558 /* VideoEdits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4615248A5CF100B7C558 /* VideoEdits.swift */; };
 		DC3D213524867882004AEA82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D213424867882004AEA82 /* AppDelegate.swift */; };
 		DC3D213924867882004AEA82 /* MainEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D213824867882004AEA82 /* MainEditorViewController.swift */; };
 		DC3D213E2486788A004AEA82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3D213D2486788A004AEA82 /* Assets.xcassets */; };
@@ -26,6 +28,16 @@
 		DC87B2E42489307200F1E3D3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2E32489307200F1E3D3 /* Constants.swift */; };
 		DCB8577824869944009E0C26 /* MetalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB8577724869944009E0C26 /* MetalImageView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3E5AC36F248A659400E6B00A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC3D212924867882004AEA82 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC3D213024867882004AEA82;
+			remoteInfo = "Crowd Protect";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		DC3D215F248679E6004AEA82 /* Embed App Extensions */ = {
@@ -42,16 +54,20 @@
 
 /* Begin PBXFileReference section */
 		05F5D6BB9BFC44776BCB7219 /* Pods-crowd protect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crowd protect.debug.xcconfig"; path = "Target Support Files/Pods-crowd protect/Pods-crowd protect.debug.xcconfig"; sourceTree = "<group>"; };
+		3E5AC36A248A659400E6B00A /* Crowd ProtectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Crowd ProtectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E5AC36E248A659400E6B00A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E5AC374248A65C400E6B00A /* ImageEditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditTests.swift; sourceTree = "<group>"; };
+		3E5AC376248A661500E6B00A /* TestImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TestImages.xcassets; sourceTree = "<group>"; };
 		40A9644741F133CB61FD02DB /* Pods-editor extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-editor extension.release.xcconfig"; path = "Target Support Files/Pods-editor extension/Pods-editor extension.release.xcconfig"; sourceTree = "<group>"; };
 		4FF87C23129384795BDA2BFE /* Pods-crowd protect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crowd protect.release.xcconfig"; path = "Target Support Files/Pods-crowd protect/Pods-crowd protect.release.xcconfig"; sourceTree = "<group>"; };
 		6E48AB2535F9B8BC78C3CE8E /* Pods_Crowd_Protect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crowd_Protect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7536794772D05AC53A4603BF /* Pods-editor extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-editor extension.debug.xcconfig"; path = "Target Support Files/Pods-editor extension/Pods-editor extension.debug.xcconfig"; sourceTree = "<group>"; };
 		7FEBDD262DA3712C3B3ED556 /* Pods-Crowd Protect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowd Protect.debug.xcconfig"; path = "Target Support Files/Pods-Crowd Protect/Pods-Crowd Protect.debug.xcconfig"; sourceTree = "<group>"; };
 		DC0C460D248A5BCE00B7C558 /* Editable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editable.swift; sourceTree = "<group>"; };
-		DC0C460F248A5C2500B7C558 /* ImageEditable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditable.swift; sourceTree = "<group>"; };
+		DC0C460F248A5C2500B7C558 /* ImageEdits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEdits.swift; sourceTree = "<group>"; };
 		DC0C4611248A5C3800B7C558 /* MediaEditable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaEditable.swift; sourceTree = "<group>"; };
 		DC0C4613248A5C9300B7C558 /* Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edit.swift; sourceTree = "<group>"; };
-		DC0C4615248A5CF100B7C558 /* VideoEditable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEditable.swift; sourceTree = "<group>"; };
+		DC0C4615248A5CF100B7C558 /* VideoEdits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEdits.swift; sourceTree = "<group>"; };
 		DC3D213124867882004AEA82 /* Crowd Protect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crowd Protect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC3D213424867882004AEA82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC3D213824867882004AEA82 /* MainEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEditorViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +89,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3E5AC367248A659400E6B00A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC3D212E24867882004AEA82 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -84,14 +107,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E5AC36B248A659400E6B00A /* Crowd ProtectTests */ = {
+			isa = PBXGroup;
+			children = (
+				3E5AC376248A661500E6B00A /* TestImages.xcassets */,
+				3E5AC374248A65C400E6B00A /* ImageEditTests.swift */,
+				3E5AC36E248A659400E6B00A /* Info.plist */,
+			);
+			path = "Crowd ProtectTests";
+			sourceTree = "<group>";
+		};
 		DC0C460C248A5BB200B7C558 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				DC0C460D248A5BCE00B7C558 /* Editable.swift */,
-				DC0C460F248A5C2500B7C558 /* ImageEditable.swift */,
-				DC0C4615248A5CF100B7C558 /* VideoEditable.swift */,
-				DC0C4611248A5C3800B7C558 /* MediaEditable.swift */,
 				DC0C4613248A5C9300B7C558 /* Edit.swift */,
+				DC0C4611248A5C3800B7C558 /* MediaEditable.swift */,
+				DC0C460F248A5C2500B7C558 /* ImageEdits.swift */,
+				DC0C4615248A5CF100B7C558 /* VideoEdits.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -102,6 +135,7 @@
 				DC3D216324868157004AEA82 /* Shared */,
 				DC3D213324867882004AEA82 /* Crowd Protect */,
 				DC87B2E12489303C00F1E3D3 /* Utilities */,
+				3E5AC36B248A659400E6B00A /* Crowd ProtectTests */,
 				DC3D214D248679E6004AEA82 /* Frameworks */,
 				DC3D213224867882004AEA82 /* Products */,
 				FA18AC5D46501D16D0501749 /* Pods */,
@@ -112,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				DC3D213124867882004AEA82 /* Crowd Protect.app */,
+				3E5AC36A248A659400E6B00A /* Crowd ProtectTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,6 +221,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3E5AC369248A659400E6B00A /* Crowd ProtectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E5AC371248A659400E6B00A /* Build configuration list for PBXNativeTarget "Crowd ProtectTests" */;
+			buildPhases = (
+				3E5AC366248A659400E6B00A /* Sources */,
+				3E5AC367248A659400E6B00A /* Frameworks */,
+				3E5AC368248A659400E6B00A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3E5AC370248A659400E6B00A /* PBXTargetDependency */,
+			);
+			name = "Crowd ProtectTests";
+			productName = "Crowd ProtectTests";
+			productReference = 3E5AC36A248A659400E6B00A /* Crowd ProtectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DC3D213024867882004AEA82 /* Crowd Protect */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC3D21452486788A004AEA82 /* Build configuration list for PBXNativeTarget "Crowd Protect" */;
@@ -216,6 +269,10 @@
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Grow Pixel";
 				TargetAttributes = {
+					3E5AC369248A659400E6B00A = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = DC3D213024867882004AEA82;
+					};
 					DC3D213024867882004AEA82 = {
 						CreatedOnToolsVersion = 11.5;
 					};
@@ -235,11 +292,20 @@
 			projectRoot = "";
 			targets = (
 				DC3D213024867882004AEA82 /* Crowd Protect */,
+				3E5AC369248A659400E6B00A /* Crowd ProtectTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3E5AC368248A659400E6B00A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E5AC377248A661900E6B00A /* TestImages.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC3D212F24867882004AEA82 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -295,18 +361,26 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3E5AC366248A659400E6B00A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E5AC375248A65C400E6B00A /* ImageEditTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC3D212D24867882004AEA82 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DC3D213924867882004AEA82 /* MainEditorViewController.swift in Sources */,
-				DC0C4610248A5C2500B7C558 /* ImageEditable.swift in Sources */,
+				DC0C4610248A5C2500B7C558 /* ImageEdits.swift in Sources */,
 				DC0C4614248A5C9300B7C558 /* Edit.swift in Sources */,
 				DC87B2E42489307200F1E3D3 /* Constants.swift in Sources */,
 				DC3D213524867882004AEA82 /* AppDelegate.swift in Sources */,
 				DC0C4612248A5C3800B7C558 /* MediaEditable.swift in Sources */,
 				DC3D216124867CDA004AEA82 /* PhotoEditingViewController.swift in Sources */,
-				DC0C4616248A5CF100B7C558 /* VideoEditable.swift in Sources */,
+				DC0C4616248A5CF100B7C558 /* VideoEdits.swift in Sources */,
 				3E5AC36524893D8900E6B00A /* Configurable.swift in Sources */,
 				DC0C460E248A5BCE00B7C558 /* Editable.swift in Sources */,
 				DC87B2E02489301400F1E3D3 /* NavigationBar.swift in Sources */,
@@ -317,6 +391,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3E5AC370248A659400E6B00A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC3D213024867882004AEA82 /* Crowd Protect */;
+			targetProxy = 3E5AC36F248A659400E6B00A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DC3D213F2486788A004AEA82 /* LaunchScreen.storyboard */ = {
@@ -330,6 +412,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3E5AC372248A659400E6B00A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Crowd ProtectTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.growpixel.Crowd-ProtectTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Crowd Protect.app/Crowd Protect";
+			};
+			name = Debug;
+		};
+		3E5AC373248A659400E6B00A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Crowd ProtectTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.growpixel.Crowd-ProtectTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Crowd Protect.app/Crowd Protect";
+			};
+			name = Release;
+		};
 		DC3D21432486788A004AEA82 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -489,6 +609,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3E5AC371248A659400E6B00A /* Build configuration list for PBXNativeTarget "Crowd ProtectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E5AC372248A659400E6B00A /* Debug */,
+				3E5AC373248A659400E6B00A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DC3D212C24867882004AEA82 /* Build configuration list for PBXProject "Crowd Protect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
