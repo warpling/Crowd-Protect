@@ -17,7 +17,8 @@
 		DC0C4612248A5C3800B7C558 /* MediaEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4611248A5C3800B7C558 /* MediaEditable.swift */; };
 		DC0C4614248A5C9300B7C558 /* Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4613248A5C9300B7C558 /* Edit.swift */; };
 		DC0C4616248A5CF100B7C558 /* VideoEdits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4615248A5CF100B7C558 /* VideoEdits.swift */; };
-		DC0C4618248A74C700B7C558 /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4617248A74C700B7C558 /* ToolBar.swift */; };
+		DC0C4618248A74C700B7C558 /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4617248A74C700B7C558 /* Toolbar.swift */; };
+		DC0C461C248A795300B7C558 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C461B248A795300B7C558 /* Buttons.swift */; };
 		DC3D213524867882004AEA82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D213424867882004AEA82 /* AppDelegate.swift */; };
 		DC3D213924867882004AEA82 /* MainEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D213824867882004AEA82 /* MainEditorViewController.swift */; };
 		DC3D213E2486788A004AEA82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3D213D2486788A004AEA82 /* Assets.xcassets */; };
@@ -72,7 +73,8 @@
 		DC0C4611248A5C3800B7C558 /* MediaEditable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaEditable.swift; sourceTree = "<group>"; };
 		DC0C4613248A5C9300B7C558 /* Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edit.swift; sourceTree = "<group>"; };
 		DC0C4615248A5CF100B7C558 /* VideoEdits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEdits.swift; sourceTree = "<group>"; };
-		DC0C4617248A74C700B7C558 /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
+		DC0C4617248A74C700B7C558 /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
+		DC0C461B248A795300B7C558 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		DC3D213124867882004AEA82 /* Crowd Protect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crowd Protect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC3D213424867882004AEA82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC3D213824867882004AEA82 /* MainEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEditorViewController.swift; sourceTree = "<group>"; };
@@ -204,8 +206,9 @@
 		DC87B2E52489365800F1E3D3 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				DC0C461B248A795300B7C558 /* Buttons.swift */,
 				DC87B2DD24892FAD00F1E3D3 /* ButtonBar.swift */,
-				DC0C4617248A74C700B7C558 /* ToolBar.swift */,
+				DC0C4617248A74C700B7C558 /* Toolbar.swift */,
 				DC0C460A2489554E00B7C558 /* MainNavigationController.swift */,
 				DC87B2DF2489301400F1E3D3 /* NavigationBar.swift */,
 			);
@@ -389,7 +392,8 @@
 				DC0C4612248A5C3800B7C558 /* MediaEditable.swift in Sources */,
 				DC3D216124867CDA004AEA82 /* PhotoEditingViewController.swift in Sources */,
 				DC0C4616248A5CF100B7C558 /* VideoEdits.swift in Sources */,
-				DC0C4618248A74C700B7C558 /* ToolBar.swift in Sources */,
+				DC0C461C248A795300B7C558 /* Buttons.swift in Sources */,
+				DC0C4618248A74C700B7C558 /* Toolbar.swift in Sources */,
 				3E5AC36524893D8900E6B00A /* Configurable.swift in Sources */,
 				DC0C460E248A5BCE00B7C558 /* Editable.swift in Sources */,
 				DC87B2E624893D9200F1E3D3 /* Configurable.swift in Sources */,

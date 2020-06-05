@@ -13,4 +13,8 @@ struct Constants {
         struct Navigation {
         }
     }
+
+    struct Metrics {
+        static let navInset = 24
+    }
 }

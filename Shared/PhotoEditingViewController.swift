@@ -13,6 +13,7 @@ import PhotosUI
 class PhotoEditingViewController : UIViewController {
 
     var imageView: EditingImageView!
+    let toolbar = Toolbar()
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -26,7 +27,16 @@ class PhotoEditingViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(imageView)
-        imageView.frame = view.bounds
+        view.addSubview(toolbar)
+
+        imageView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+
+        toolbar.snp.makeConstraints { (make) in
+            make.leading.bottom.trailing.equalToSuperview()
+            make.height.greaterThanOrEqualTo(100)
+        }
     }
 
 
