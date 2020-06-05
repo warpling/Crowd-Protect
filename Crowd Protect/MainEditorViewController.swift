@@ -57,6 +57,7 @@ class MainEditorViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
 
         libraryButton.addTarget(self, action: #selector(presentImagePicker), for: .touchUpInside)
+        shareButton.addTarget(self, action: #selector(share), for: .touchUpInside)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +85,19 @@ private extension MainEditorViewController {
         }
         
         present(imagePickerController, animated: true)
+    }
+
+    @objc func share() {
+
+        guard let image = editorVC.imageEdits?.finalOutput else {
+            print("Failed to export image")
+            return
+        }
+
+        let activityVC = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        present(activityVC, animated: true) {
+            //
+        }
     }
 }
 
