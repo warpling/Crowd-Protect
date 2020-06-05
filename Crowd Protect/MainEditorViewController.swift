@@ -13,8 +13,6 @@ class MainEditorViewController: UIViewController {
 
     let editorVC = PhotoEditingViewController()
 
-    let nav = NavigationBar()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,11 +21,18 @@ class MainEditorViewController: UIViewController {
         addChild(editorVC)
         editorVC.didMove(toParent: self)
 
-        view.addSubview(nav)
-        nav.snp.makeConstraints { (make) in
-            make.leading.top.trailing.equalToSuperview()
-            make.height.greaterThanOrEqualTo(100)
+        let libraryButton = UIButton { button in
+            button.setImage(UIImage(systemName: "photo.on.rectangle"), for: .normal)
+            button.setTitle("Library", for: .normal)
         }
+
+        let shareButton = UIButton { button in
+            button.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
+            button.setTitle("Export", for: .normal)
+        }
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: libraryButton)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
