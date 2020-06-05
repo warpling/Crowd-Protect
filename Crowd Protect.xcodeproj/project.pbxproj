@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E5AC36524893D8900E6B00A /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2E22489304F00F1E3D3 /* Configurable.swift */; };
 		3E5AC375248A65C400E6B00A /* ImageEditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5AC374248A65C400E6B00A /* ImageEditTests.swift */; };
 		3E5AC377248A661900E6B00A /* TestImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E5AC376248A661500E6B00A /* TestImages.xcassets */; };
+		3E5FFDB8248A915300825D76 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5FFDB7248A915300825D76 /* Buttons.swift */; };
+		3E5FFDB9248A91F400825D76 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2E22489304F00F1E3D3 /* Configurable.swift */; };
 		3EA88799248A84A40063971B /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA88798248A84A40063971B /* MainNavigationController.swift */; };
 		56FA1F19186A16B45E8574A5 /* Pods_Crowd_Protect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E48AB2535F9B8BC78C3CE8E /* Pods_Crowd_Protect.framework */; };
 		DC0C460E248A5BCE00B7C558 /* Editable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C460D248A5BCE00B7C558 /* Editable.swift */; };
@@ -18,7 +19,6 @@
 		DC0C4614248A5C9300B7C558 /* Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4613248A5C9300B7C558 /* Edit.swift */; };
 		DC0C4616248A5CF100B7C558 /* VideoEdits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4615248A5CF100B7C558 /* VideoEdits.swift */; };
 		DC0C4618248A74C700B7C558 /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4617248A74C700B7C558 /* Toolbar.swift */; };
-		DC0C461C248A795300B7C558 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C461B248A795300B7C558 /* Buttons.swift */; };
 		DC3D213524867882004AEA82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D213424867882004AEA82 /* AppDelegate.swift */; };
 		DC3D213924867882004AEA82 /* MainEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D213824867882004AEA82 /* MainEditorViewController.swift */; };
 		DC3D213E2486788A004AEA82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3D213D2486788A004AEA82 /* Assets.xcassets */; };
@@ -29,7 +29,6 @@
 		DC87B2DE24892FAD00F1E3D3 /* ButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2DD24892FAD00F1E3D3 /* ButtonBar.swift */; };
 		DC87B2E02489301400F1E3D3 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2DF2489301400F1E3D3 /* NavigationBar.swift */; };
 		DC87B2E42489307200F1E3D3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2E32489307200F1E3D3 /* Constants.swift */; };
-		DC87B2E624893D9200F1E3D3 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2E22489304F00F1E3D3 /* Configurable.swift */; };
 		DCB8577824869944009E0C26 /* MetalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB8577724869944009E0C26 /* MetalImageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +61,7 @@
 		3E5AC36E248A659400E6B00A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E5AC374248A65C400E6B00A /* ImageEditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditTests.swift; sourceTree = "<group>"; };
 		3E5AC376248A661500E6B00A /* TestImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TestImages.xcassets; sourceTree = "<group>"; };
+		3E5FFDB7248A915300825D76 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		3EA88798248A84A40063971B /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		40A9644741F133CB61FD02DB /* Pods-editor extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-editor extension.release.xcconfig"; path = "Target Support Files/Pods-editor extension/Pods-editor extension.release.xcconfig"; sourceTree = "<group>"; };
 		4FF87C23129384795BDA2BFE /* Pods-crowd protect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crowd protect.release.xcconfig"; path = "Target Support Files/Pods-crowd protect/Pods-crowd protect.release.xcconfig"; sourceTree = "<group>"; };
@@ -74,7 +74,6 @@
 		DC0C4613248A5C9300B7C558 /* Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edit.swift; sourceTree = "<group>"; };
 		DC0C4615248A5CF100B7C558 /* VideoEdits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEdits.swift; sourceTree = "<group>"; };
 		DC0C4617248A74C700B7C558 /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
-		DC0C461B248A795300B7C558 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		DC3D213124867882004AEA82 /* Crowd Protect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crowd Protect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC3D213424867882004AEA82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC3D213824867882004AEA82 /* MainEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEditorViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +187,7 @@
 				DC3D216024867CDA004AEA82 /* PhotoEditingViewController.swift */,
 				DCB8577724869944009E0C26 /* MetalImageView.swift */,
 				DC531DDA2487FCCC00DED632 /* EditingImageView.swift */,
+				3E5FFDB7248A915300825D76 /* Buttons.swift */,
 				DC0C460C248A5BB200B7C558 /* Models */,
 				DC87B2E52489365800F1E3D3 /* Navigation */,
 			);
@@ -206,7 +206,6 @@
 		DC87B2E52489365800F1E3D3 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				DC0C461B248A795300B7C558 /* Buttons.swift */,
 				DC87B2DD24892FAD00F1E3D3 /* ButtonBar.swift */,
 				DC0C4617248A74C700B7C558 /* Toolbar.swift */,
 				3EA88798248A84A40063971B /* MainNavigationController.swift */,
@@ -389,16 +388,15 @@
 				DC87B2E42489307200F1E3D3 /* Constants.swift in Sources */,
 				DC3D213524867882004AEA82 /* AppDelegate.swift in Sources */,
 				DC0C4612248A5C3800B7C558 /* MediaEditable.swift in Sources */,
+				3E5FFDB9248A91F400825D76 /* Configurable.swift in Sources */,
 				DC3D216124867CDA004AEA82 /* PhotoEditingViewController.swift in Sources */,
 				DC0C4616248A5CF100B7C558 /* VideoEdits.swift in Sources */,
 				3EA88799248A84A40063971B /* MainNavigationController.swift in Sources */,
-				DC0C461C248A795300B7C558 /* Buttons.swift in Sources */,
 				DC0C4618248A74C700B7C558 /* Toolbar.swift in Sources */,
-				3E5AC36524893D8900E6B00A /* Configurable.swift in Sources */,
 				DC0C460E248A5BCE00B7C558 /* Editable.swift in Sources */,
-				DC87B2E624893D9200F1E3D3 /* Configurable.swift in Sources */,
 				DC87B2E02489301400F1E3D3 /* NavigationBar.swift in Sources */,
 				DC87B2DE24892FAD00F1E3D3 /* ButtonBar.swift in Sources */,
+				3E5FFDB8248A915300825D76 /* Buttons.swift in Sources */,
 				DCB8577824869944009E0C26 /* MetalImageView.swift in Sources */,
 				DC531DDC2487FD4F00DED632 /* EditingImageView.swift in Sources */,
 			);

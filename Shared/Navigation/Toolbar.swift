@@ -37,7 +37,7 @@ class Toolbar: ButtonBar {
     init() {
         super.init(frame: .zero)
 
-        let faceBlurButton = Button { button in
+        let faceBlurButton = CustomButton { button in
 
             let config = UIImage.SymbolConfiguration(pointSize: UIFont.systemFontSize, weight: .bold, scale: .large)
             let icon = UIImage(systemName: "person.crop.circle.badge.xmark", withConfiguration: config)
@@ -48,7 +48,7 @@ class Toolbar: ButtonBar {
             button.tintColor = .label
         }
 
-        let drawBlurButton = Button { button in
+        let drawBlurButton = CustomButton { button in
 
             let config = UIImage.SymbolConfiguration(pointSize: UIFont.systemFontSize, weight: .bold, scale: .large)
             let icon = UIImage(systemName: "scribble", withConfiguration: config)
