@@ -10,8 +10,8 @@
 		3E5AC36524893D8900E6B00A /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2E22489304F00F1E3D3 /* Configurable.swift */; };
 		3E5AC375248A65C400E6B00A /* ImageEditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5AC374248A65C400E6B00A /* ImageEditTests.swift */; };
 		3E5AC377248A661900E6B00A /* TestImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E5AC376248A661500E6B00A /* TestImages.xcassets */; };
+		3EA88799248A84A40063971B /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA88798248A84A40063971B /* MainNavigationController.swift */; };
 		56FA1F19186A16B45E8574A5 /* Pods_Crowd_Protect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E48AB2535F9B8BC78C3CE8E /* Pods_Crowd_Protect.framework */; };
-		DC0C460B2489554E00B7C558 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C460A2489554E00B7C558 /* MainNavigationController.swift */; };
 		DC0C460E248A5BCE00B7C558 /* Editable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C460D248A5BCE00B7C558 /* Editable.swift */; };
 		DC0C4610248A5C2500B7C558 /* ImageEdits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C460F248A5C2500B7C558 /* ImageEdits.swift */; };
 		DC0C4612248A5C3800B7C558 /* MediaEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4611248A5C3800B7C558 /* MediaEditable.swift */; };
@@ -62,12 +62,12 @@
 		3E5AC36E248A659400E6B00A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E5AC374248A65C400E6B00A /* ImageEditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditTests.swift; sourceTree = "<group>"; };
 		3E5AC376248A661500E6B00A /* TestImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TestImages.xcassets; sourceTree = "<group>"; };
+		3EA88798248A84A40063971B /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		40A9644741F133CB61FD02DB /* Pods-editor extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-editor extension.release.xcconfig"; path = "Target Support Files/Pods-editor extension/Pods-editor extension.release.xcconfig"; sourceTree = "<group>"; };
 		4FF87C23129384795BDA2BFE /* Pods-crowd protect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crowd protect.release.xcconfig"; path = "Target Support Files/Pods-crowd protect/Pods-crowd protect.release.xcconfig"; sourceTree = "<group>"; };
 		6E48AB2535F9B8BC78C3CE8E /* Pods_Crowd_Protect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crowd_Protect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7536794772D05AC53A4603BF /* Pods-editor extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-editor extension.debug.xcconfig"; path = "Target Support Files/Pods-editor extension/Pods-editor extension.debug.xcconfig"; sourceTree = "<group>"; };
 		7FEBDD262DA3712C3B3ED556 /* Pods-Crowd Protect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowd Protect.debug.xcconfig"; path = "Target Support Files/Pods-Crowd Protect/Pods-Crowd Protect.debug.xcconfig"; sourceTree = "<group>"; };
-		DC0C460A2489554E00B7C558 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainNavigationController.swift; path = "../../../Crowd Protect/Shared/Navigation/MainNavigationController.swift"; sourceTree = "<group>"; };
 		DC0C460D248A5BCE00B7C558 /* Editable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editable.swift; sourceTree = "<group>"; };
 		DC0C460F248A5C2500B7C558 /* ImageEdits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEdits.swift; sourceTree = "<group>"; };
 		DC0C4611248A5C3800B7C558 /* MediaEditable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaEditable.swift; sourceTree = "<group>"; };
@@ -209,7 +209,7 @@
 				DC0C461B248A795300B7C558 /* Buttons.swift */,
 				DC87B2DD24892FAD00F1E3D3 /* ButtonBar.swift */,
 				DC0C4617248A74C700B7C558 /* Toolbar.swift */,
-				DC0C460A2489554E00B7C558 /* MainNavigationController.swift */,
+				3EA88798248A84A40063971B /* MainNavigationController.swift */,
 				DC87B2DF2489301400F1E3D3 /* NavigationBar.swift */,
 			);
 			path = Navigation;
@@ -386,12 +386,12 @@
 				DC3D213924867882004AEA82 /* MainEditorViewController.swift in Sources */,
 				DC0C4610248A5C2500B7C558 /* ImageEdits.swift in Sources */,
 				DC0C4614248A5C9300B7C558 /* Edit.swift in Sources */,
-				DC0C460B2489554E00B7C558 /* MainNavigationController.swift in Sources */,
 				DC87B2E42489307200F1E3D3 /* Constants.swift in Sources */,
 				DC3D213524867882004AEA82 /* AppDelegate.swift in Sources */,
 				DC0C4612248A5C3800B7C558 /* MediaEditable.swift in Sources */,
 				DC3D216124867CDA004AEA82 /* PhotoEditingViewController.swift in Sources */,
 				DC0C4616248A5CF100B7C558 /* VideoEdits.swift in Sources */,
+				3EA88799248A84A40063971B /* MainNavigationController.swift in Sources */,
 				DC0C461C248A795300B7C558 /* Buttons.swift in Sources */,
 				DC0C4618248A74C700B7C558 /* Toolbar.swift in Sources */,
 				3E5AC36524893D8900E6B00A /* Configurable.swift in Sources */,
