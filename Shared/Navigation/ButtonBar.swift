@@ -11,14 +11,27 @@ import SnapKit
 
 class ButtonBar: UIView {
 
-    let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .systemMaterial))
+    let blurView: UIVisualEffectView
+    let vibrancyView: UIVisualEffectView
 
     override init(frame: CGRect) {
+
+        let blurEffect = UIBlurEffect(style: .systemChromeMaterial)
+        blurView = UIVisualEffectView(effect: blurEffect)
+        vibrancyView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: blurEffect))
+
         super.init(frame: .zero)
         addSubview(blurView)
+        blurView.contentView.addSubview(vibrancyView)
+
         blurView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
+
+        vibrancyView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+
     }
 
     required init?(coder: NSCoder) {
