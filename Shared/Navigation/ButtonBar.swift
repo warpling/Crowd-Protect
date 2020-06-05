@@ -11,7 +11,6 @@ import SnapKit
 
 class ButtonBar: UIView {
 
-
     let blurView: UIVisualEffectView
     let vibrancyView: UIVisualEffectView
 
