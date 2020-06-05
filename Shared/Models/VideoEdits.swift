@@ -1,5 +1,5 @@
 //
-//  VideoEditable.swift
+//  VideoEdits.swift
 //  Crowd Protect
 //
 //  Created by Ryan McLeod on 6/5/20.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class VideoEditable: MediaEditable<NSData> {
-
+class VideoEdits: MediaEditable<NSData> {
+    // Unused for now
 }

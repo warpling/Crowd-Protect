@@ -6,16 +6,16 @@
 //  Copyright © 2020 Grow Pixel. All rights reserved.
 //
 
-import Foundation
+import CoreGraphics
 
 protocol Edit {
     
 }
 
 struct FaceBlurEdit : Edit {
-
+    let frame: CGRect
 }
 
 struct DrawBlurEdit: Edit {
-
+    let path: CGPath
 }
