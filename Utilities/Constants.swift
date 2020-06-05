@@ -17,7 +17,7 @@ struct Constants {
         struct Toolbar {
             struct Tool {
 
-                static let activeText = UIColor.label
+                static let activeText = UIColor.white
                 static let inactiveText = UIColor.label
 
                 static let activeBackground = UIColor.systemIndigo
@@ -27,6 +27,10 @@ struct Constants {
     }
 
     struct Metrics {
-        static let navInset = 24
+        static let navInset: CGFloat = 24
+
+        struct Buttons {
+            static let iconTitleSpacing: CGFloat = 8
+        }
     }
 }

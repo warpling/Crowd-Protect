@@ -22,24 +22,41 @@ class MainEditorViewController: UIViewController {
         editorVC.didMove(toParent: self)
 
         let libraryButton = CustomButton { button in
-            button.setImage(UIImage(systemName: "photo.on.rectangle"), for: .normal)
-            button.setImageColor(.red, for: .normal)
-            button.setImageColor(.blue, for: .highlighted)
+            let config = UIImage.SymbolConfiguration(pointSize: UIFont.systemFontSize, weight: .semibold, scale: .large)
+            let image = UIImage(systemName: "photo.on.rectangle", withConfiguration: config)
+
+            button.setImage(image, for: .normal)
             button.setTitle("Library", for: .normal)
-            button.setTitleColor(.red, for: .normal)
-            button.setTitleColor(.blue, for: .highlighted)
-            
-            button.setBackgroundColor(.green, for: .normal)
-            button.setBackgroundColor(.brown, for: .highlighted)
+
+            button.setImageColor(.label, for: .normal)
+            button.setImageColor(.secondaryLabel, for: .highlighted)
+
+            button.setTitleColor(.label, for: .normal)
+            button.setTitleColor(.secondaryLabel, for: .highlighted)
+
+            button.setInsets(forContentPadding: .zero, imageTitlePadding: Constants.Metrics.Buttons.iconTitleSpacing)
         }
 
-        let shareButton = UIButton { button in
-            button.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
+        let shareButton = CustomButton { button in
+            let config = UIImage.SymbolConfiguration(pointSize: UIFont.systemFontSize, weight: .semibold, scale: .large)
+            let image = UIImage(systemName: "square.and.arrow.up", withConfiguration: config)
+
+            button.setImage(image, for: .normal)
             button.setTitle("Export", for: .normal)
+
+            button.setImageColor(.label, for: .normal)
+            button.setImageColor(.secondaryLabel, for: .highlighted)
+
+            button.setTitleColor(.label, for: .normal)
+            button.setTitleColor(.label, for: .highlighted)
+
+            button.setInsets(forContentPadding: .zero, imageTitlePadding: Constants.Metrics.Buttons.iconTitleSpacing)
         }
+
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: libraryButton)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: shareButton)
-        
+
+        libraryButton.addTarget(self, action: #selector(presentImagePicker), for: .touchUpInside)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -56,19 +73,8 @@ class MainEditorViewController: UIViewController {
 
 private extension MainEditorViewController {
     
-    func presentImagePicker() {
-//        let status = PHPhotoLibrary.authorizationStatus()
-//        guard status == .authorized else {
-//            if status == .notDetermined {
-//                PHPhotoLibrary.requestAuthorization { _ in
-//                    DispatchQueue.main.async {
-//                        self.presentImagePicker()
-//                    }
-//                }
-//            }
-//            return
-//        }
-        
+    @objc func presentImagePicker() {
+
         let imagePickerController = UIImagePickerController { controller in
             controller.sourceType = .photoLibrary
             controller.videoQuality = .typeHigh

@@ -16,7 +16,7 @@ class ButtonBar: UIView {
 
     override init(frame: CGRect) {
 
-        let blurEffect = UIBlurEffect(style: .systemMaterial)
+        let blurEffect = UIBlurEffect(style: .systemChromeMaterial)
         blurView = UIVisualEffectView(effect: blurEffect)
         vibrancyView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: blurEffect))
 

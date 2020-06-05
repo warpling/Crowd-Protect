@@ -45,6 +45,11 @@ class PhotoEditingViewController : UIViewController {
     var imageEdits: ImageEdits? {
         didSet {
             imageView.image = imageEdits?.displayOutput
+
+            if let imageEdits = imageEdits {
+                toolbar.isEnabled = true
+                toolbar.isUndoPossible = !imageEdits.edits.isEmpty
+            }
         }
     }
 

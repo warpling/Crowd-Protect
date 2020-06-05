@@ -23,58 +23,36 @@ class Toolbar: ButtonBar {
         stackView.spacing = 10
     }
 
-    let faceBlurButton: Button = {
+    let faceBlurButton: CustomButton = {
         let button = Toolbar.newToolbarButton(iconName: "person.crop.circle.badge.xmark", title: "Face Blur")
         return button
     }()
 
-    let drawBlurButton: Button = {
+    let drawBlurButton: CustomButton = {
         let button = Toolbar.newToolbarButton(iconName: "scribble", title: "Draw Blur")
         return button
     }()
 
-    let undoButton = UIButton { button in
+    let undoButton = CustomButton { button in
 
-        let config = UIImage.SymbolConfiguration(pointSize: UIFont.systemFontSize, weight: .bold, scale: .large)
-        let undoFilled = UIImage(systemName: "arrow.uturn.left.circle", withConfiguration: config)
+        let config = UIImage.SymbolConfiguration(pointSize: 22, weight: .medium)
+        let undoIcon = UIImage(systemName: "arrow.uturn.left.circle", withConfiguration: config)
         let undoFilledIcon = UIImage(systemName: "arrow.uturn.left.circle.fill", withConfiguration: config)
 
         button.setImage(undoFilledIcon, for: .normal)
-        button.setImage(undoFilled, for: .disabled)
+        button.setImage(undoIcon, for: .disabled)
 
-        button.tintColor = UIColor.label
+        button.setImageColor(Constants.Colors.Toolbar.Tool.activeText, for: .selected)
+        button.setImageColor(Constants.Colors.Toolbar.Tool.inactiveText, for: .normal)
+        button.setImageColor(Constants.Colors.Toolbar.Tool.activeText, for: .highlighted)
     }
 
     init() {
         super.init(frame: .zero)
 
-<<<<<<< HEAD
-        let faceBlurButton = CustomButton { button in
-
-            let config = UIImage.SymbolConfiguration(pointSize: UIFont.systemFontSize, weight: .bold, scale: .large)
-            let icon = UIImage(systemName: "person.crop.circle.badge.xmark", withConfiguration: config)
-            button.setImage(icon, for: .normal)
-
-            button.setTitle("foo", for: .normal)
-            button.setTitleColor(.label, for: .normal)
-            button.tintColor = .label
-        }
-
-        let drawBlurButton = CustomButton { button in
-
-            let config = UIImage.SymbolConfiguration(pointSize: UIFont.systemFontSize, weight: .bold, scale: .large)
-            let icon = UIImage(systemName: "scribble", withConfiguration: config)
-            button.setImage(icon, for: .normal)
-
-            button.setTitle("bar", for: .normal)
-            button.setTitleColor(.label, for: .normal)
-            button.tintColor = .label
-        }
-=======
         undoButton.addTarget(self, action: #selector(undo), for: .touchUpInside)
         faceBlurButton.addTarget(self, action: #selector(faceBlur), for: .touchUpInside)
         drawBlurButton.addTarget(self, action: #selector(drawBlur), for: .touchUpInside)
->>>>>>> More toolbar setup
 
         toolsStackView.addArrangedSubview(faceBlurButton)
         toolsStackView.addArrangedSubview(drawBlurButton)
@@ -90,18 +68,21 @@ class Toolbar: ButtonBar {
         }
 
         toolsStackView.snp.makeConstraints { (make) in
-            make.height.equalTo(self).inset(Constants.Metrics.navInset)
+            make.height.equalToSuperview()
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview()
         }
 
         undoButton.snp.makeConstraints { (make) in
-            make.top.trailing.bottom.equalToSuperview().inset(Constants.Metrics.navInset)
+            make.trailing.equalToSuperview().inset(Constants.Metrics.navInset)
+            make.centerY.equalTo(toolsScrollView)
             make.leading.equalTo(toolsScrollView.snp.trailing).offset(Constants.Metrics.navInset)
         }
 
-        toolsStackView.isUserInteractionEnabled = true
-        toolsScrollView.isUserInteractionEnabled = true
+        faceBlurButton.isSelected = true
+        faceBlurButton.isEnabled = false
+        drawBlurButton.isEnabled = false
+        undoButton.isEnabled = false
     }
 
     required init?(coder: NSCoder) {
@@ -109,6 +90,19 @@ class Toolbar: ButtonBar {
     }
 
     // MARK: - Actions
+
+    var isEnabled = false {
+        didSet {
+            faceBlurButton.isEnabled = isEnabled
+            drawBlurButton.isEnabled = isEnabled
+        }
+    }
+
+    var isUndoPossible = false {
+        didSet {
+            undoButton.isEnabled = isUndoPossible
+        }
+    }
 
     @objc func faceBlur() {
         faceBlurButton.isSelected = true
@@ -125,28 +119,32 @@ class Toolbar: ButtonBar {
     }
 
 
-    class func newToolbarButton(iconName: String, title: String) -> Button {
-        return Button { button in
+    class func newToolbarButton(iconName: String, title: String) -> CustomButton {
+        return CustomButton { button in
 
-            let config = UIImage.SymbolConfiguration(pointSize: UIFont.systemFontSize, weight: .bold, scale: .large)
+            let config = UIImage.SymbolConfiguration(pointSize: UIFont.systemFontSize, weight: .semibold, scale: .large)
             let icon = UIImage(systemName: iconName, withConfiguration: config)
+
+            button.cornerRadius = 12
 
             button.setImage(icon, for: .normal)
             button.setTitle(title, for: .normal)
 
             button.setBackgroundColor(Constants.Colors.Toolbar.Tool.activeBackground, for: .selected)
             button.setBackgroundColor(Constants.Colors.Toolbar.Tool.inactiveBackground, for: .normal)
-            button.setBackgroundColor(.label, for: .highlighted)
+            button.setBackgroundColor(Constants.Colors.Toolbar.Tool.inactiveBackground, for: .highlighted)
 
             button.setTitleColor(Constants.Colors.Toolbar.Tool.activeText, for: .selected)
             button.setTitleColor(Constants.Colors.Toolbar.Tool.inactiveText, for: .normal)
             button.setTitleColor(Constants.Colors.Toolbar.Tool.activeText, for: .highlighted)
 
-            button.tintColor = .label
+            button.setImageColor(Constants.Colors.Toolbar.Tool.activeText, for: .selected)
+            button.setImageColor(Constants.Colors.Toolbar.Tool.inactiveText, for: .normal)
+            button.setImageColor(Constants.Colors.Toolbar.Tool.activeText, for: .highlighted)
 
-            let contentPadding = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
+            let contentPadding = UIEdgeInsets(top: 4, left: 10, bottom: 4, right: 12)
             button.setInsets(forContentPadding: contentPadding,
-                             imageTitlePadding: 8)
+                             imageTitlePadding: Constants.Metrics.Buttons.iconTitleSpacing)
         }
     }
 }
