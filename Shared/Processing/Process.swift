@@ -1,3 +1,4 @@
+import UIKit
 import AVFoundation
 import CoreGraphics
 import CoreImage.CIFilterBuiltins
@@ -178,24 +179,24 @@ final class Compositor: NSObject, AVVideoCompositing {
 }
 
 
-let assetURL = URL(fileURLWithPath: "protest.mp4").resolvingSymlinksInPath()
-let asset = AVURLAsset(url: assetURL)
-
-guard let session = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality) else {
-    fatalError()
-}
-
-let videoComposition = AVMutableVideoComposition(propertiesOf: asset)
-videoComposition.customVideoCompositorClass = Compositor.self
-
-let outputURL = URL(fileURLWithPath: "protest2.mp4")
-try? FileManager.default.removeItem(at: outputURL)
-
-session.videoComposition = videoComposition
-session.outputURL = outputURL
-session.timeRange = CMTimeRange(start: .zero, duration: CMTime(seconds: 1, preferredTimescale: asset.duration.timescale))
-session.exportAsynchronously {
-    print("done! \(session.error)")
-}
-
-RunLoop.main.run()
+//let assetURL = URL(fileURLWithPath: "protest.mp4").resolvingSymlinksInPath()
+//let asset = AVURLAsset(url: assetURL)
+//
+//guard let session = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality) else {
+//    fatalError()
+//}
+//
+//let videoComposition = AVMutableVideoComposition(propertiesOf: asset)
+//videoComposition.customVideoCompositorClass = Compositor.self
+//
+//let outputURL = URL(fileURLWithPath: "protest2.mp4")
+//try? FileManager.default.removeItem(at: outputURL)
+//
+//session.videoComposition = videoComposition
+//session.outputURL = outputURL
+//session.timeRange = CMTimeRange(start: .zero, duration: CMTime(seconds: 1, preferredTimescale: asset.duration.timescale))
+//session.exportAsynchronously {
+//    print("done! \(session.error)")
+//}
+//
+//RunLoop.main.run()

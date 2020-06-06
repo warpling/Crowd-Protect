@@ -28,6 +28,8 @@
 		DC3D216B24868FD9004AEA82 /* TestImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3D216A24868FD9004AEA82 /* TestImages.xcassets */; };
 		DC4B1657248A8F6000E9513D /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1656248A8F6000E9513D /* UIColor+Extensions.swift */; };
 		DC4B1659248AA11500E9513D /* WrappedActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1658248AA11500E9513D /* WrappedActivityController.swift */; };
+		DC4B165D248BE68100E9513D /* UIImage+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B165C248BE68100E9513D /* UIImage+CVPixelBuffer.swift */; };
+		DC4B165F248BE6B700E9513D /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B165E248BE6B700E9513D /* Process.swift */; };
 		DC531DDC2487FD4F00DED632 /* EditingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC531DDA2487FCCC00DED632 /* EditingImageView.swift */; };
 		DC87B2DE24892FAD00F1E3D3 /* ButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2DD24892FAD00F1E3D3 /* ButtonBar.swift */; };
 		DC87B2E02489301400F1E3D3 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2DF2489301400F1E3D3 /* NavigationBar.swift */; };
@@ -90,6 +92,8 @@
 		DC3D216A24868FD9004AEA82 /* TestImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TestImages.xcassets; sourceTree = "<group>"; };
 		DC4B1656248A8F6000E9513D /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		DC4B1658248AA11500E9513D /* WrappedActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedActivityController.swift; sourceTree = "<group>"; };
+		DC4B165C248BE68100E9513D /* UIImage+CVPixelBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CVPixelBuffer.swift"; sourceTree = "<group>"; };
+		DC4B165E248BE6B700E9513D /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
 		DC531DDA2487FCCC00DED632 /* EditingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingImageView.swift; sourceTree = "<group>"; };
 		DC87B2DD24892FAD00F1E3D3 /* ButtonBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBar.swift; sourceTree = "<group>"; };
 		DC87B2DF2489301400F1E3D3 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
@@ -195,10 +199,20 @@
 				DC531DDA2487FCCC00DED632 /* EditingImageView.swift */,
 				3E5FFDB7248A915300825D76 /* Buttons.swift */,
 				DC4B1658248AA11500E9513D /* WrappedActivityController.swift */,
+				DC4B165B248BE65F00E9513D /* Processing */,
 				DC0C460C248A5BB200B7C558 /* Models */,
 				DC87B2E52489365800F1E3D3 /* Navigation */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		DC4B165B248BE65F00E9513D /* Processing */ = {
+			isa = PBXGroup;
+			children = (
+				DC4B165E248BE6B700E9513D /* Process.swift */,
+				DC4B165C248BE68100E9513D /* UIImage+CVPixelBuffer.swift */,
+			);
+			path = Processing;
 			sourceTree = "<group>";
 		};
 		DC87B2E12489303C00F1E3D3 /* Utilities */ = {
@@ -395,6 +409,7 @@
 				DC0C4610248A5C2500B7C558 /* ImageEdits.swift in Sources */,
 				DC0C4614248A5C9300B7C558 /* Edit.swift in Sources */,
 				DC87B2E42489307200F1E3D3 /* Constants.swift in Sources */,
+				DC4B165D248BE68100E9513D /* UIImage+CVPixelBuffer.swift in Sources */,
 				DC3D213524867882004AEA82 /* AppDelegate.swift in Sources */,
 				DC0C4612248A5C3800B7C558 /* MediaEditable.swift in Sources */,
 				3E5FFDB9248A91F400825D76 /* Configurable.swift in Sources */,
@@ -408,6 +423,7 @@
 				DC4B1659248AA11500E9513D /* WrappedActivityController.swift in Sources */,
 				DC0C4620248A876F00B7C558 /* UIView+Rounded.swift in Sources */,
 				DC87B2DE24892FAD00F1E3D3 /* ButtonBar.swift in Sources */,
+				DC4B165F248BE6B700E9513D /* Process.swift in Sources */,
 				3E5FFDB8248A915300825D76 /* Buttons.swift in Sources */,
 				DCB8577824869944009E0C26 /* MetalImageView.swift in Sources */,
 				DC531DDC2487FD4F00DED632 /* EditingImageView.swift in Sources */,
