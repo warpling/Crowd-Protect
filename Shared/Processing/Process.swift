@@ -119,9 +119,9 @@ final class Compositor: NSObject, AVVideoCompositing {
             return nil
         }
         
-        context.setFillColor(.black)
+        context.setFillColor(UIColor.black.cgColor)
         context.fill(CGRect(origin: .zero, size: CGSize(width: width, height: height)))
-        context.setFillColor(.white)
+        context.setFillColor(UIColor.white.cgColor)
         context.fill(regions)
         
         guard let image = context.makeImage() else {
@@ -136,47 +136,57 @@ final class Compositor: NSObject, AVVideoCompositing {
             guard let frame = compositionRequest.sourceFrame(byTrackID: trackID) else {
                 continue
             }
-            
-            let handler = VNImageRequestHandler(cvPixelBuffer: frame, options: [:])
-            
-            let detectFacesRequest = VNDetectFaceRectanglesRequest { (detectFacesRequest, error) in
-                guard let results = detectFacesRequest.results as? [VNFaceObservation] else {
-                    fatalError()
-                }
-                
-                let frames: [CGRect] = results.map { result in
-                    let boundingBox = result.boundingBox
-                    let width = CGFloat(frame.width)
-                    let height = CGFloat(frame.height)
-                    let frame = CGRect(x: boundingBox.minX * width, y: boundingBox.minY * height, width: width * boundingBox.width, height: height * boundingBox.height)
-                    return frame
-                }
-                
-                let inputImage = CIImage(cvPixelBuffer: frame)
-                
-                let pixellate = CIFilter.pixellate()
-                pixellate.inputImage = inputImage
-                pixellate.scale = 50
-                
-                let blendWithMask = CIFilter.blendWithMask()
-                blendWithMask.backgroundImage = inputImage
-                blendWithMask.inputImage = pixellate.outputImage
-                blendWithMask.maskImage = self.mask(width: frame.width, height: frame.height, regions: frames)
-                
-                self.context.render(blendWithMask.outputImage!, to: frame)
-//                try! frame.draw { context in
-//                    context.setFillColor(CGColor.black)
-//                    context.fill(frames)
-//                }
 
-                compositionRequest.finish(withComposedVideoFrame: frame)
-            }
-            detectFacesRequest.revision = VNDetectFaceRectanglesRequestRevision2
-            
-            try! handler.perform([detectFacesRequest])
+            processFaces(buffer: frame, context: context, completion: { buffer in
+                compositionRequest.finish(withComposedVideoFrame: buffer)
+            })
         }
     }
+
+    func processFaces(buffer: CVPixelBuffer, context: CIContext, completion: @escaping (CVPixelBuffer) -> Void ) {
+        let handler = VNImageRequestHandler(cvPixelBuffer: buffer, options: [:])
+
+        let detectFacesRequest = VNDetectFaceRectanglesRequest { (detectFacesRequest, error) in
+            guard let results = detectFacesRequest.results as? [VNFaceObservation] else {
+                fatalError()
+            }
+
+            let frames: [CGRect] = results.map { result in
+                print("🤡 Found face: \(result.boundingBox)")
+                let boundingBox = result.boundingBox
+                let width = CGFloat(buffer.width)
+                let height = CGFloat(buffer.height)
+                let frame = CGRect(x: boundingBox.minX * width, y: boundingBox.minY * height, width: width * boundingBox.width, height: height * boundingBox.height)
+                return frame
+            }
+
+            let inputImage = CIImage(cvPixelBuffer: buffer)
+
+            let pixellate = CIFilter.pixellate()
+            pixellate.inputImage = inputImage
+            pixellate.scale = 50
+
+            let blendWithMask = CIFilter.blendWithMask()
+            blendWithMask.backgroundImage = inputImage
+            blendWithMask.inputImage = pixellate.outputImage
+            blendWithMask.maskImage = self.mask(width: buffer.width, height: buffer.height, regions: frames)
+
+            context.render(blendWithMask.outputImage!, to: buffer)
+            try! buffer.draw { context in
+                context.setFillColor(UIColor.black.cgColor)
+                context.fill(frames)
+            }
+
+            completion(buffer)
+        }
+
+        detectFacesRequest.revision = VNDetectFaceRectanglesRequestRevision2
+
+        try! handler.perform([detectFacesRequest])
+    }
 }
+
+
 
 
 //let assetURL = URL(fileURLWithPath: "protest.mp4").resolvingSymlinksInPath()

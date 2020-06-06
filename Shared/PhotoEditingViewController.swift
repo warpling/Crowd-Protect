@@ -44,7 +44,16 @@ class PhotoEditingViewController : UIViewController {
 
     var imageEdits: ImageEdits? {
         didSet {
-            imageView.image = imageEdits?.displayOutput
+
+            if let input = imageEdits?.displayOutput.cvPixelBuffer {
+                let compositor = Compositor()
+                compositor.processFaces(buffer: input, context: compositor.context) { (output) in
+                    let outputImage = UIImage(pixelBuffer: output)
+                    self.imageView.image = outputImage
+                }
+            }
+
+//            imageView.image = imageEdits?.displayOutput
 
             if let imageEdits = imageEdits {
                 toolbar.isEnabled = true

@@ -1,10 +1,11 @@
-// Source:
-// https://gist.github.com/francoismarceau29/abac55c22f6e440800d1d73d72bf2225
 
 import UIKit
+import VideoToolbox
 
 extension UIImage {
-    func toCVPixelBuffer() -> CVPixelBuffer? {
+
+    // Source: https://gist.github.com/francoismarceau29/abac55c22f6e440800d1d73d72bf2225
+    var cvPixelBuffer: CVPixelBuffer? {
         let attrs = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue, kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary
         var pixelBuffer : CVPixelBuffer?
         let status = CVPixelBufferCreate(kCFAllocatorDefault, Int(self.size.width), Int(self.size.height), kCVPixelFormatType_32ARGB, attrs, &pixelBuffer)
@@ -31,5 +32,16 @@ extension UIImage {
         }
 
         return nil
+    }
+
+    public convenience init?(pixelBuffer: CVPixelBuffer) {
+        var imageOut: CGImage?
+        VTCreateCGImageFromCVPixelBuffer(pixelBuffer, options: nil, imageOut: &imageOut)
+
+        guard let cgImage = imageOut else {
+            return nil
+        }
+
+        self.init(cgImage: cgImage)
     }
 }
