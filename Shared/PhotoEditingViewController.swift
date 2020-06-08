@@ -14,7 +14,8 @@ class PhotoEditingViewController : UIViewController {
 
     var imageView: EditingImageView!
     let toolbar = Toolbar()
-
+    let redactor = Redactor()
+    
     init() {
         super.init(nibName: nil, bundle: nil)
         imageView = EditingImageView(frame: .zero)
@@ -44,16 +45,12 @@ class PhotoEditingViewController : UIViewController {
 
     var imageEdits: ImageEdits? {
         didSet {
-
-            if let input = imageEdits?.displayOutput.cvPixelBuffer {
-                let compositor = Compositor()
-                compositor.processFaces(buffer: input, context: compositor.context) { (output) in
-                    let outputImage = UIImage(pixelBuffer: output)
-                    self.imageView.image = outputImage
-                }
+            if let input = imageEdits?.displayOutput.cgImage {
+                guard
+                    let image = try? redactor.blurFaces(in: input),
+                    let cgImage = redactor.context.createCGImage(image, from: CGRect(origin: .zero, size: .init(width: input.width, height: input.height))) else { return }
+                imageView.image = UIImage(cgImage: cgImage)
             }
-
-//            imageView.image = imageEdits?.displayOutput
 
             if let imageEdits = imageEdits {
                 toolbar.isEnabled = true
