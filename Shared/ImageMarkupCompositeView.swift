@@ -10,27 +10,26 @@ import UIKit
 
 class ImageMarkupCompositeView: UIView {
 
-    let imageScrollView: UIImageScrollView
+    let imageView = UIImageView()
     let markupsView: MarkupsView
 
     init(imageEdits: ImageEdits) {
 
         let image = imageEdits.media
-        imageScrollView = UIImageScrollView(image: image)
+        imageView.image = imageEdits.media
         markupsView = MarkupsView(size: image.size, faces: imageEdits.normalizedFaceRects)
 
         super.init(frame: .zero)
 
-        addSubview(imageScrollView)
+        addSubview(imageView)
         addSubview(markupsView)
 
-        imageScrollView.snp.makeConstraints { (make) in
+        imageView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
 
-        markupsView.isUserInteractionEnabled = false
         markupsView.snp.makeConstraints { (make) in
-            make.edges.equalTo(imageScrollView.imageView)
+            make.edges.equalTo(imageView)
         }
     }
 

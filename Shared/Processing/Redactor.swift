@@ -90,6 +90,12 @@ final class Redactor {
             return frame
         }
     }
+
+    func normalizedFaces(in image: Redactable) throws -> [CGRect] {
+        let (width, height) = (CGFloat(image.size.width), CGFloat(image.size.height))
+        return try faces(in: image).map({ return $0.applying(CGAffineTransform(scaleX: (1.0 / width), y: (1.0 / height))) })
+    }
+
     
     func blur(regions: [CGRect], in image: Redactable) -> CIImage {
         let inputImage = image.ciImage

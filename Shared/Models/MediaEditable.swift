@@ -6,11 +6,12 @@
 //  Copyright © 2020 Grow Pixel. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class MediaEditable<MediaType> : Editable {
 
     let media: MediaType
+
     var edits = [Edit]()
 
     public init(_ media: MediaType) {

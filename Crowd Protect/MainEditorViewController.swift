@@ -62,13 +62,11 @@ class MainEditorViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        presentImagePicker()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        presentImagePicker()
     }
 }
 

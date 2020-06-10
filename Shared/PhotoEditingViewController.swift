@@ -12,13 +12,13 @@ import PhotosUI
 
 class PhotoEditingViewController : UIViewController {
 
-    var imageView: EditingImageView!
+    var imageScrollView: UIImageScrollView?
+
     let toolbar = Toolbar()
     let redactor = Redactor()
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        imageView = EditingImageView(frame: .zero)
     }
 
     required init?(coder: NSCoder) {
@@ -27,12 +27,7 @@ class PhotoEditingViewController : UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(imageView)
         view.addSubview(toolbar)
-
-        imageView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
 
         toolbar.snp.makeConstraints { (make) in
             make.leading.bottom.trailing.equalToSuperview()
@@ -45,24 +40,28 @@ class PhotoEditingViewController : UIViewController {
 
     var imageEdits: ImageEdits? {
         didSet {
-            if let input = imageEdits?.displayOutput.cgImage {
-                guard
-                    let image = try? redactor.blurFaces(in: input),
-                    let cgImage = redactor.context.createCGImage(image, from: CGRect(origin: .zero, size: .init(width: input.width, height: input.height))) else { return }
-                imageView.image = UIImage(cgImage: cgImage)
+
+            imageScrollView?.removeFromSuperview()
+            imageScrollView = nil
+
+            guard let imageEdits = imageEdits else { return }
+
+            if let input = imageEdits.displayOutput.cgImage {
+//                guard
+//                    let image = try? redactor.blurFaces(in: input),
+//                    let cgImage = redactor.context.createCGImage(image, from: CGRect(origin: .zero, size: CGSize(width: input.width, height: input.height))) else { return }
+
+                let compositeView = ImageMarkupCompositeView(imageEdits: imageEdits)
+                imageScrollView = UIImageScrollView(contentView: compositeView)
+                view.insertSubview(imageScrollView!, belowSubview: toolbar)
+                imageScrollView!.snp.makeConstraints { (make) in
+                    make.edges.equalToSuperview()
+                }
             }
 
-            if let imageEdits = imageEdits {
-                toolbar.isEnabled = true
-                toolbar.isUndoPossible = !imageEdits.edits.isEmpty
-            }
+            toolbar.isEnabled = true
+            toolbar.isUndoPossible = !imageEdits.edits.isEmpty
         }
-    }
-
-    var imageEditable: ImageEdits? {
-        didSet {
-            imageView.image = imageEdits?.displayOutput
-         }
     }
 
     func startEditing(with image: UIImage) {

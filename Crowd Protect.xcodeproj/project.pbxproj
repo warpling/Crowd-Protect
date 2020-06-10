@@ -32,11 +32,12 @@
 		DC4B1659248AA11500E9513D /* WrappedActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1658248AA11500E9513D /* WrappedActivityController.swift */; };
 		DC4B165D248BE68100E9513D /* UIImage+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B165C248BE68100E9513D /* UIImage+CVPixelBuffer.swift */; };
 		DC4B165F248BE6B700E9513D /* CVPixelBuffer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B165E248BE6B700E9513D /* CVPixelBuffer+Extensions.swift */; };
-		DC531DDC2487FD4F00DED632 /* EditingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC531DDA2487FCCC00DED632 /* EditingImageView.swift */; };
+		DC4B1661248E5E9200E9513D /* MarkupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1660248E5E9200E9513D /* MarkupView.swift */; };
+		DC4B1663248E7D4800E9513D /* UIImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1662248E7D4700E9513D /* UIImageScrollView.swift */; };
+		DC531DDC2487FD4F00DED632 /* ImageMarkupCompositeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC531DDA2487FCCC00DED632 /* ImageMarkupCompositeView.swift */; };
 		DC87B2DE24892FAD00F1E3D3 /* ButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2DD24892FAD00F1E3D3 /* ButtonBar.swift */; };
 		DC87B2E02489301400F1E3D3 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2DF2489301400F1E3D3 /* NavigationBar.swift */; };
 		DC87B2E42489307200F1E3D3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2E32489307200F1E3D3 /* Constants.swift */; };
-		DCB8577824869944009E0C26 /* MetalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB8577724869944009E0C26 /* MetalImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,12 +99,13 @@
 		DC4B1658248AA11500E9513D /* WrappedActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedActivityController.swift; sourceTree = "<group>"; };
 		DC4B165C248BE68100E9513D /* UIImage+CVPixelBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CVPixelBuffer.swift"; sourceTree = "<group>"; };
 		DC4B165E248BE6B700E9513D /* CVPixelBuffer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+Extensions.swift"; sourceTree = "<group>"; };
-		DC531DDA2487FCCC00DED632 /* EditingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingImageView.swift; sourceTree = "<group>"; };
+		DC4B1660248E5E9200E9513D /* MarkupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkupView.swift; sourceTree = "<group>"; };
+		DC4B1662248E7D4700E9513D /* UIImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageScrollView.swift; sourceTree = "<group>"; };
+		DC531DDA2487FCCC00DED632 /* ImageMarkupCompositeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMarkupCompositeView.swift; sourceTree = "<group>"; };
 		DC87B2DD24892FAD00F1E3D3 /* ButtonBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBar.swift; sourceTree = "<group>"; };
 		DC87B2DF2489301400F1E3D3 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		DC87B2E22489304F00F1E3D3 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		DC87B2E32489307200F1E3D3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		DCB8577724869944009E0C26 /* MetalImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalImageView.swift; sourceTree = "<group>"; };
 		DD49B3E94C5FC1F06E3B8534 /* Pods-Crowd Protect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowd Protect.release.xcconfig"; path = "Target Support Files/Pods-Crowd Protect/Pods-Crowd Protect.release.xcconfig"; sourceTree = "<group>"; };
 		FE1E4EC9F52AB571F70FFE4B /* Pods_editor_extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_editor_extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -199,10 +201,11 @@
 			children = (
 				DC3D216A24868FD9004AEA82 /* TestImages.xcassets */,
 				DC3D216024867CDA004AEA82 /* PhotoEditingViewController.swift */,
-				DCB8577724869944009E0C26 /* MetalImageView.swift */,
-				DC531DDA2487FCCC00DED632 /* EditingImageView.swift */,
+				DC531DDA2487FCCC00DED632 /* ImageMarkupCompositeView.swift */,
+				DC4B1662248E7D4700E9513D /* UIImageScrollView.swift */,
+				DC4B1660248E5E9200E9513D /* MarkupView.swift */,
 				3E5FFDB7248A915300825D76 /* Buttons.swift */,
-				DC4B1658248AA11500E9513D /* WrappedActivityController.swift */,
+				DCEEB7872490E9A0005152D7 /* Share Sheet */,
 				DC4B165B248BE65F00E9513D /* Processing */,
 				DC0C460C248A5BB200B7C558 /* Models */,
 				DC87B2E52489365800F1E3D3 /* Navigation */,
@@ -213,9 +216,9 @@
 		DC4B165B248BE65F00E9513D /* Processing */ = {
 			isa = PBXGroup;
 			children = (
-				DC4B165E248BE6B700E9513D /* CVPixelBuffer+Extensions.swift */,
 				D02E4863248C42D700E25C74 /* Redactor.swift */,
 				D02E4865248C431200E25C74 /* Compositor.swift */,
+				DC4B165E248BE6B700E9513D /* CVPixelBuffer+Extensions.swift */,
 				DC4B165C248BE68100E9513D /* UIImage+CVPixelBuffer.swift */,
 			);
 			path = Processing;
@@ -241,6 +244,14 @@
 				DC87B2DF2489301400F1E3D3 /* NavigationBar.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		DCEEB7872490E9A0005152D7 /* Share Sheet */ = {
+			isa = PBXGroup;
+			children = (
+				DC4B1658248AA11500E9513D /* WrappedActivityController.swift */,
+			);
+			path = "Share Sheet";
 			sourceTree = "<group>";
 		};
 		FA18AC5D46501D16D0501749 /* Pods */ = {
@@ -417,6 +428,8 @@
 				DC0C4614248A5C9300B7C558 /* Edit.swift in Sources */,
 				DC87B2E42489307200F1E3D3 /* Constants.swift in Sources */,
 				DC4B165D248BE68100E9513D /* UIImage+CVPixelBuffer.swift in Sources */,
+				DC4B1661248E5E9200E9513D /* MarkupView.swift in Sources */,
+				DC4B1663248E7D4800E9513D /* UIImageScrollView.swift in Sources */,
 				DC3D213524867882004AEA82 /* AppDelegate.swift in Sources */,
 				DC0C4612248A5C3800B7C558 /* MediaEditable.swift in Sources */,
 				3E5FFDB9248A91F400825D76 /* Configurable.swift in Sources */,
@@ -433,8 +446,7 @@
 				DC87B2DE24892FAD00F1E3D3 /* ButtonBar.swift in Sources */,
 				DC4B165F248BE6B700E9513D /* CVPixelBuffer+Extensions.swift in Sources */,
 				3E5FFDB8248A915300825D76 /* Buttons.swift in Sources */,
-				DCB8577824869944009E0C26 /* MetalImageView.swift in Sources */,
-				DC531DDC2487FD4F00DED632 /* EditingImageView.swift in Sources */,
+				DC531DDC2487FD4F00DED632 /* ImageMarkupCompositeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
