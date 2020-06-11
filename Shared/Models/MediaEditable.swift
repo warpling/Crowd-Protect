@@ -15,7 +15,6 @@ class MediaEditable<MediaType> : Editable {
 
     var edits = [Edit]() {
         didSet {
-            print("edits did change")
             editsDelegate?.editsDidChange()
         }
     }

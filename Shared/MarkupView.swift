@@ -57,6 +57,19 @@ class FaceMarkupView: UIView, MarkupVisual {
     func tapped() {
         isFilled.toggle()
     }
+
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+
+        // TODO: Animation persistence
+        let phaseAnimation = CABasicAnimation(keyPath: "lineDashPhase")
+        phaseAnimation.fromValue = 0
+        phaseAnimation.toValue = 2*32
+        phaseAnimation.repeatCount = Float.greatestFiniteMagnitude
+        phaseAnimation.duration = 1
+        phaseAnimation.timingFunction = CAMediaTimingFunction(name: .linear)
+        faceShape.add(phaseAnimation, forKey: "phase")
+    }
 }
 
 class MarkupsView: UIView {
@@ -96,6 +109,7 @@ class MarkupsView: UIView {
 
                 case .faceRedaction(let id, let frame):
                     let markupView = FaceMarkupView(id: id, faceRect: frame)
+                    markupView.alpha = 0.75
                     markupView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(markupTapped(_:))))
                     return markupView
                 }
