@@ -7,13 +7,15 @@
 //
 
 import CoreGraphics
+import Foundation
 
 protocol Edit {
     
 }
 
 struct FaceBlurEdit : Edit {
-    let frame: CGRect
+    let id: UUID
+    let isEnabled: Bool
 }
 
 struct DrawBlurEdit: Edit {

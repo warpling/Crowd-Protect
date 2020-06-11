@@ -11,8 +11,14 @@ import UIKit
 class MediaEditable<MediaType> : Editable {
 
     let media: MediaType
+    var editsDelegate: EditsDelegate?
 
-    var edits = [Edit]()
+    var edits = [Edit]() {
+        didSet {
+            print("edits did change")
+            editsDelegate?.editsDidChange()
+        }
+    }
 
     public init(_ media: MediaType) {
         self.media = media
@@ -22,6 +28,7 @@ class MediaEditable<MediaType> : Editable {
         get {
             // use CI pipeline to render display image/video
             return media
+//            return Compositor().
         }
     }
 
@@ -31,6 +38,8 @@ class MediaEditable<MediaType> : Editable {
             return media
         }
     }
+}
 
-
+protocol EditsDelegate {
+    func editsDidChange()
 }

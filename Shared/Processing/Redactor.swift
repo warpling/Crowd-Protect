@@ -7,30 +7,60 @@
 //
 
 import Foundation
+import UIKit
 import CoreVideo
 import CoreGraphics
 import CoreImage
 import Vision
 
 protocol Redactable {
-    var size: CVPixelBuffer.IntegralSize { get }
+    var integralSize: CVPixelBuffer.IntegralSize { get }
     var ciImage: CIImage { get }
     var requestHandler: VNImageRequestHandler { get }
+    var orientation: CGImagePropertyOrientation { get }
 }
 
 extension CVPixelBuffer: Redactable {
     var ciImage: CIImage {
         CIImage(cvPixelBuffer: self)
     }
-    
+
+    var orientation: CGImagePropertyOrientation {
+        return .up
+    }
+
     var requestHandler: VNImageRequestHandler {
         VNImageRequestHandler(cvPixelBuffer: self, options: [:])
     }
 }
 
+extension UIImage: Redactable {
+    var integralSize: CVPixelBuffer.IntegralSize {
+        .init(width: cgImage!.width, height: cgImage!.height)
+    }
+
+    var orientation: CGImagePropertyOrientation {
+        // Note: We currently require images to have their orientation baked in
+        return .up
+    }
+
+    var ciImage: CIImage {
+        CIImage(cgImage: cgImage!)
+    }
+
+    var requestHandler: VNImageRequestHandler {
+        VNImageRequestHandler(cgImage: cgImage!, orientation: orientation, options: [:])
+    }
+}
+
+
 extension CGImage: Redactable {
-    var size: CVPixelBuffer.IntegralSize {
+    var integralSize: CVPixelBuffer.IntegralSize {
         .init(width: width, height: height)
+    }
+
+    var orientation: CGImagePropertyOrientation {
+        .up
     }
     
     var ciImage: CIImage {
@@ -84,18 +114,17 @@ final class Redactor {
         
         return observations.map { observation in
             let boundingBox = observation.boundingBox
-            let width = CGFloat(image.size.width)
-            let height = CGFloat(image.size.height)
+            let width = CGFloat(image.integralSize.width)
+            let height = CGFloat(image.integralSize.height)
             let frame = CGRect(x: boundingBox.minX * width, y: boundingBox.minY * height, width: width * boundingBox.width, height: height * boundingBox.height)
             return frame
         }
     }
 
-    func normalizedFaces(in image: Redactable) throws -> [CGRect] {
-        let (width, height) = (CGFloat(image.size.width), CGFloat(image.size.height))
-        return try faces(in: image).map({ return $0.applying(CGAffineTransform(scaleX: (1.0 / width), y: (1.0 / height))) })
+    class func normalize(faceRect: CGRect, in size: CGSize) -> CGRect {
+        let (width, height) = (Int(size.width), Int(size.height))
+        return VNNormalizedRectForImageRect(faceRect, width, height)
     }
-
     
     func blur(regions: [CGRect], in image: Redactable) -> CIImage {
         let inputImage = image.ciImage
@@ -107,7 +136,7 @@ final class Redactor {
         let blendWithMask = CIFilter.blendWithMask()
         blendWithMask.backgroundImage = inputImage
         blendWithMask.inputImage = pixellate.outputImage
-        blendWithMask.maskImage = Self.mask(size: image.size, regions: regions)
+        blendWithMask.maskImage = Self.mask(size: image.integralSize, regions: regions)
         
         return blendWithMask.outputImage!
     }

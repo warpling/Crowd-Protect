@@ -8,16 +8,19 @@
 
 import UIKit
 
-class ImageMarkupCompositeView: UIView {
+class ImageMarkupCompositeView: UIView, EditsDelegate {
 
+    let imageEdits: ImageEdits
     let imageView = UIImageView()
     let markupsView: MarkupsView
 
     init(imageEdits: ImageEdits) {
 
+        self.imageEdits = imageEdits
         let image = imageEdits.media
-        imageView.image = imageEdits.media
-        markupsView = MarkupsView(size: image.size, faces: imageEdits.normalizedFaceRects)
+
+        imageView.image = imageEdits.displayOutput
+        markupsView = MarkupsView(size: image.size, faces: imageEdits.faceRects)
 
         super.init(frame: .zero)
 
@@ -35,5 +38,9 @@ class ImageMarkupCompositeView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func editsDidChange() {
+        imageView.image = imageEdits.displayOutput
     }
 }

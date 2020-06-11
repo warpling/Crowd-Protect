@@ -15,6 +15,8 @@ enum Markup {
 protocol MarkupVisual: UIView {
     var id: UUID { get }
     var normalizedFrame: CGRect { get }
+
+    func tapped()
 }
 
 class FaceMarkupView: UIView, MarkupVisual {
@@ -30,8 +32,6 @@ class FaceMarkupView: UIView, MarkupVisual {
         super.init(frame: .zero)
 
         layer.addSublayer(faceShape)
-
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))
     }
 
     required init?(coder: NSCoder) {
@@ -50,12 +50,11 @@ class FaceMarkupView: UIView, MarkupVisual {
 
     var isFilled = false {
         didSet {
-            faceShape.strokeColor = isFilled ? nil : UIColor.magenta.cgColor
-            faceShape.fillColor = isFilled ? UIColor.black.cgColor : nil
+            faceShape.strokeColor = isFilled ? UIColor.systemGreen.cgColor : UIColor.systemPink.cgColor
         }
     }
 
-    @objc func tap(_ sender: UIGestureRecognizer) {
+    func tapped() {
         isFilled.toggle()
     }
 }
@@ -64,11 +63,14 @@ class MarkupsView: UIView {
 
     private var markups: [Markup]
     var markupViews = [MarkupVisual]()
+    var editsReceiver: EditsReceiver?
 
     init(size: CGSize, faces: [UUID : CGRect]) {
 
         markups = faces.map { (id, faceRect) -> Markup in
-            let uiFrame = faceRect.applying(CGAffineTransform(scaleX: 1, y: -1).translatedBy(x: 0, y: -1))
+            let normalizedFaceRect = Redactor.normalize(faceRect: faceRect, in: size)
+            // Flip to the UI coordinate system
+            let uiFrame = normalizedFaceRect.applying(CGAffineTransform(scaleX: 1, y: -1)).applying(CGAffineTransform(translationX: 0, y: 1))
             return Markup.faceRedaction(id: id, frame: uiFrame)
         }
 
@@ -94,13 +96,15 @@ class MarkupsView: UIView {
                 switch markup {
 
                 case .faceRedaction(let id, let frame):
-                    return FaceMarkupView(id: id, faceRect: frame)
+                    let markupView = FaceMarkupView(id: id, faceRect: frame)
+                    markupView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(markupTapped(_:))))
+                    return markupView
                 }
             }()
 
             markupViews.append(markupView)
             addSubview(markupView)
-            print(markupView.normalizedFrame)
+
             markupView.snp.makeConstraints { (make) in
                 // To use AL to align rects we have to use origins to do math based on centering
                 make.centerX.equalToSuperview().multipliedBy(2.0*markupView.normalizedFrame.origin.x + markupView.normalizedFrame.width)
@@ -108,6 +112,18 @@ class MarkupsView: UIView {
                 make.width.equalToSuperview().multipliedBy(markupView.normalizedFrame.width)
                 make.height.equalToSuperview().multipliedBy(markupView.normalizedFrame.height)
             }
+        }
+    }
+}
+
+extension MarkupsView {
+    @objc func markupTapped(_ sender: UITapGestureRecognizer) {
+        switch sender.view {
+        case let faceMarkupView as FaceMarkupView:
+            faceMarkupView.tapped()
+            editsReceiver?.changedRedactedFace(id: faceMarkupView.id, isRedacted: faceMarkupView.isFilled)
+
+        default: fatalError()
         }
     }
 }

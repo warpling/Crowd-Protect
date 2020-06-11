@@ -20,7 +20,7 @@ extension UIImage {
             let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
             let context = CGContext(data: pixelData, width: Int(self.size.width), height: Int(self.size.height), bitsPerComponent: 8, bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer), space: rgbColorSpace, bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue)
 
-            context?.translateBy(x: 0, y: self.size.height)
+            context?.translateBy(x: 0, y: CGFloat(self.size.height))
             context?.scaleBy(x: 1.0, y: -1.0)
 
             UIGraphicsPushContext(context!)

@@ -50,7 +50,7 @@ extension CVPixelBuffer {
         CVPixelBufferGetBaseAddress(self)
     }
     
-    var size: IntegralSize {
+    var integralSize: IntegralSize {
         IntegralSize(width: CVPixelBufferGetWidth(self), height: CVPixelBufferGetHeight(self))
     }
     
@@ -77,7 +77,7 @@ extension CGSize {
 extension CGContext {
     static func context(buffer: CVPixelBuffer) -> CGContext? {
         guard let format = buffer.format else { return nil }
-        return self.context(data: buffer.baseAddress, size: buffer.size, bytesPerRow: buffer.bytesPerRow, format: format)
+        return self.context(data: buffer.baseAddress, size: buffer.integralSize, bytesPerRow: buffer.bytesPerRow, format: format)
     }
     
     static func context(data: UnsafeMutableRawPointer?, size: CVPixelBuffer.IntegralSize, bytesPerRow: Int, format: CVPixelBuffer.Format) -> CGContext? {

@@ -46,18 +46,19 @@ class PhotoEditingViewController : UIViewController {
 
             guard let imageEdits = imageEdits else { return }
 
-            if let input = imageEdits.displayOutput.cgImage {
+//            if let input = imageEdits.displayOutput.cgImage {
 //                guard
 //                    let image = try? redactor.blurFaces(in: input),
 //                    let cgImage = redactor.context.createCGImage(image, from: CGRect(origin: .zero, size: CGSize(width: input.width, height: input.height))) else { return }
 
                 let compositeView = ImageMarkupCompositeView(imageEdits: imageEdits)
+                compositeView.markupsView.editsReceiver = self
                 imageScrollView = UIImageScrollView(contentView: compositeView)
                 view.insertSubview(imageScrollView!, belowSubview: toolbar)
                 imageScrollView!.snp.makeConstraints { (make) in
                     make.edges.equalToSuperview()
                 }
-            }
+//            }
 
             toolbar.isEnabled = true
             toolbar.isUndoPossible = !imageEdits.edits.isEmpty
@@ -65,6 +66,22 @@ class PhotoEditingViewController : UIViewController {
     }
 
     func startEditing(with image: UIImage) {
-        imageEdits = ImageEdits(image)
+        let normalizedImage = image.normalized(orientation: image.imageOrientation)!
+        imageEdits = ImageEdits(normalizedImage)
+    }
+}
+
+protocol EditsReceiver {
+    func changedRedactedFace(id: UUID, isRedacted: Bool)
+}
+
+extension PhotoEditingViewController : EditsReceiver {
+
+    func changedRedactedFace(id: UUID, isRedacted: Bool) {
+        guard let imageEdits = imageEdits else {
+            fatalError("Can't handle edits without an image")
+        }
+
+        imageEdits.edits.append(FaceBlurEdit(id: id, isEnabled: isRedacted))
     }
 }
