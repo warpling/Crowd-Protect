@@ -92,5 +92,85 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D4960F52-E0F6-4C8F-83BC-86F40A71A123"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Models/ImageEdits.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "displayOutput"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "69A68FC1-DDC9-47C6-961C-CD2A9B52AC06"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/Models/ImageEdits.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "displayOutput"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "69A68FC1-DDC9-47C6-961C-CD2A9B52AC06 - e2a71867d02df0f0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Crowd_Protect.ImageEdits.displayOutput.getter : __C.UIImage"
+                  moduleName = "Crowd Protect"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ryanmcleod/Code/Crowd%20Protect/Shared/Models/ImageEdits.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "492">
+               </Location>
+               <Location
+                  uuid = "69A68FC1-DDC9-47C6-961C-CD2A9B52AC06 - 149f60145b0aadad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Foundation.UUID) -&gt; (Foundation.UUID, Swift.Bool) in Crowd_Protect.ImageEdits.displayOutput.getter : __C.UIImage"
+                  moduleName = "Crowd Protect"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ryanmcleod/Code/Crowd%20Protect/Shared/Models/ImageEdits.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "312B56E4-C37A-4D65-BA44-268C83F3F8F9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/ImageMarkupCompositeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "editsDidChange()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

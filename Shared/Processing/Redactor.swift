@@ -85,6 +85,14 @@ extension VNDetectFaceRectanglesRequest {
 }
 
 final class Redactor {
+
+    struct FaceInfo {
+        let frame: CGRect
+        let normalizedFrame: CGRect
+        let roll: CGFloat
+        let yaw: CGFloat
+    }
+
     let context = CIContext()
 
     private static func mask(size: CVPixelBuffer.IntegralSize, regions: [CGRect]) -> CIImage? {
@@ -104,7 +112,7 @@ final class Redactor {
         return CIImage(cgImage: image)
     }
     
-    func faces(in image: Redactable) throws -> [CGRect] {
+    func faces(in image: Redactable) throws -> [FaceInfo] {
         var result: Result<VNDetectFaceRectanglesRequest, Error>?
         let request = VNDetectFaceRectanglesRequest { detectResult in
             result = detectResult
@@ -117,11 +125,15 @@ final class Redactor {
             let width = CGFloat(image.integralSize.width)
             let height = CGFloat(image.integralSize.height)
             let frame = CGRect(x: boundingBox.minX * width, y: boundingBox.minY * height, width: width * boundingBox.width, height: height * boundingBox.height)
-            return frame
+            let size = CGSize(width: image.integralSize.width, height: image.integralSize.height)
+            let normalizedFrame = Redactor.normalize(frame, in: size)
+            let roll = CGFloat(observation.roll?.floatValue ?? 0)
+            let yaw = CGFloat(observation.yaw?.floatValue ?? 0)
+            return FaceInfo(frame: frame, normalizedFrame: normalizedFrame, roll: roll, yaw: yaw)
         }
     }
 
-    class func normalize(faceRect: CGRect, in size: CGSize) -> CGRect {
+    class func normalize(_ faceRect: CGRect, in size: CGSize) -> CGRect {
         let (width, height) = (Int(size.width), Int(size.height))
         return VNNormalizedRectForImageRect(faceRect, width, height)
     }
@@ -142,6 +154,7 @@ final class Redactor {
     }
     
     func blurFaces(in image: Redactable) throws -> CIImage {
-        try blur(regions: faces(in: image), in: image)
+        let regions = try faces(in: image).map({ $0.frame })
+        return blur(regions: regions, in: image)
     }
 }

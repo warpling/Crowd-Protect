@@ -20,7 +20,7 @@ class ImageMarkupCompositeView: UIView, EditsDelegate {
         let image = imageEdits.media
 
         imageView.image = imageEdits.displayOutput
-        markupsView = MarkupsView(size: image.size, faces: imageEdits.faceRects)
+        markupsView = MarkupsView(size: image.size, faces: imageEdits.faces)
 
         super.init(frame: .zero)
 

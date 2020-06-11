@@ -42,7 +42,7 @@ class FaceMarkupView: UIView, MarkupVisual {
         super.layoutSubviews()
         faceShape.frame = bounds
         faceShape.path = UIBezierPath(ovalIn: bounds).cgPath
-        faceShape.strokeColor = UIColor.magenta.cgColor
+        faceShape.strokeColor = UIColor.systemPink.cgColor
         faceShape.fillColor = nil
         faceShape.lineWidth = 14
         faceShape.lineDashPattern = [32, 32]
@@ -65,12 +65,11 @@ class MarkupsView: UIView {
     var markupViews = [MarkupVisual]()
     var editsReceiver: EditsReceiver?
 
-    init(size: CGSize, faces: [UUID : CGRect]) {
+    init(size: CGSize, faces: [UUID : Redactor.FaceInfo]) {
 
-        markups = faces.map { (id, faceRect) -> Markup in
-            let normalizedFaceRect = Redactor.normalize(faceRect: faceRect, in: size)
+        markups = faces.map { (id, faceInfo) -> Markup in
             // Flip to the UI coordinate system
-            let uiFrame = normalizedFaceRect.applying(CGAffineTransform(scaleX: 1, y: -1)).applying(CGAffineTransform(translationX: 0, y: 1))
+            let uiFrame = faceInfo.normalizedFrame.applying(CGAffineTransform(scaleX: 1, y: -1)).applying(CGAffineTransform(translationX: 0, y: 1))
             return Markup.faceRedaction(id: id, frame: uiFrame)
         }
 
