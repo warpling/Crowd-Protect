@@ -12,6 +12,7 @@ import PhotosUI
 
 class PhotoEditingViewController : UIViewController {
 
+    var compositeView: ImageMarkupCompositeView?
     var imageScrollView: UIImageScrollView?
 
     let toolbar = Toolbar()
@@ -35,6 +36,12 @@ class PhotoEditingViewController : UIViewController {
         }
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        // TODO: Try to ensure the bottom of the photo can be edited and doesn't get stuck behind the toolbar
+//        additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: toolbar.bounds.height, right: 0)
+    }
+
 
     // MARK: -
 
@@ -46,12 +53,11 @@ class PhotoEditingViewController : UIViewController {
 
             guard let imageEdits = imageEdits else { return }
 
-            let compositeView = ImageMarkupCompositeView(imageEdits: imageEdits)
-            compositeView.markupsView.editsReceiver = self
-            imageEdits.editsDelegate = compositeView
+            compositeView = ImageMarkupCompositeView(imageEdits: imageEdits)
+            compositeView!.markupsView.markupEditsReceiver = self
+            imageEdits.editsDelegate = self
 
-
-            imageScrollView = UIImageScrollView(contentView: compositeView)
+            imageScrollView = UIImageScrollView(contentView: compositeView!)
             view.insertSubview(imageScrollView!, belowSubview: toolbar)
             imageScrollView!.snp.makeConstraints { (make) in
                 make.edges.equalToSuperview()
@@ -59,6 +65,7 @@ class PhotoEditingViewController : UIViewController {
 
             toolbar.isEnabled = true
             toolbar.isUndoPossible = !imageEdits.edits.isEmpty
+            toolbar.receiver = self
         }
     }
 
@@ -68,11 +75,23 @@ class PhotoEditingViewController : UIViewController {
     }
 }
 
-protocol EditsReceiver {
+// MARK: - EditsDelegate
+
+extension PhotoEditingViewController : EditsDelegate {
+    func editsDidChange() {
+        guard let imageEdits = imageEdits else { return }
+        toolbar.isUndoPossible = !imageEdits.edits.isEmpty
+        compositeView?.refresh()
+    }
+}
+
+// MARK: - MarkupEditsReceiver
+
+protocol MarkupEditsReceiver {
     func changedRedactedFace(id: UUID, isRedacted: Bool)
 }
 
-extension PhotoEditingViewController : EditsReceiver {
+extension PhotoEditingViewController : MarkupEditsReceiver {
 
     func changedRedactedFace(id: UUID, isRedacted: Bool) {
         guard let imageEdits = imageEdits else {
@@ -80,5 +99,13 @@ extension PhotoEditingViewController : EditsReceiver {
         }
 
         imageEdits.edits.append(.faceBlur(id: id, isEnabled: isRedacted))
+    }
+}
+
+// MARK: - ToolbarReceiver
+
+extension PhotoEditingViewController : ToolbarReceiver {
+    func undo() {
+        imageEdits?.edits.removeLast()
     }
 }

@@ -76,7 +76,7 @@ class MarkupsView: UIView {
 
     private var markups: [Markup]
     var markupViews = [MarkupVisual]()
-    var editsReceiver: EditsReceiver?
+    var markupEditsReceiver: MarkupEditsReceiver?
 
     init(size: CGSize, faces: [UUID : Redactor.FaceInfo]) {
 
@@ -134,7 +134,7 @@ extension MarkupsView {
         switch sender.view {
         case let faceMarkupView as FaceMarkupView:
             faceMarkupView.tapped()
-            editsReceiver?.changedRedactedFace(id: faceMarkupView.id, isRedacted: faceMarkupView.isFilled)
+            markupEditsReceiver?.changedRedactedFace(id: faceMarkupView.id, isRedacted: faceMarkupView.isFilled)
 
         default: fatalError()
         }

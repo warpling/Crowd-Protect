@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageMarkupCompositeView: UIView, EditsDelegate {
+class ImageMarkupCompositeView: UIView {
 
     let imageEdits: ImageEdits
     let imageView = UIImageView()
@@ -40,7 +40,8 @@ class ImageMarkupCompositeView: UIView, EditsDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func editsDidChange() {
+    func refresh() {
         imageView.image = imageEdits.displayOutput
     }
+
 }
