@@ -158,7 +158,7 @@ class MarkupsView: UIView {
 
                 case .scribble(let id, let frame, let normalizedPath):
                     let markupView = ScribbleMarkupView(id: id, scribbleRect: frame, normalizedPath: normalizedPath)
-                    markupView.alpha = 0.1
+                    markupView.alpha = 0.5
                     markupView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(markupTapped(_:))))
                     markupEditsReceiver?.addedScribble(id: id, normalizedFrame: frame, normalizedPath: normalizedPath)
                     return markupView
@@ -192,7 +192,7 @@ class MarkupsView: UIView {
         switch gesture.state {
         case .ended:
             let location = gesture.location(in: self)
-            let size: CGFloat = 88
+            let size: CGFloat = 132
             let frame = CGRect(x: location.x - size/2, y: location.y - size/2, width: size, height: size)
             let normalizedFrame = Redactor.normalize(frame, in: bounds.size)
             let normalizedPath = UIBezierPath(ovalIn: CGRect(origin: .zero, size: normalizedFrame.size)).cgPath
