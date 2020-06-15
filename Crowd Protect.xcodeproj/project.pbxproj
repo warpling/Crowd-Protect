@@ -39,6 +39,7 @@
 		DC87B2E02489301400F1E3D3 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2DF2489301400F1E3D3 /* NavigationBar.swift */; };
 		DC87B2E42489307200F1E3D3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2E32489307200F1E3D3 /* Constants.swift */; };
 		DCC1601A24911D2700738D6A /* UIImage+Normalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC1601924911D2700738D6A /* UIImage+Normalize.swift */; };
+		DCC1601C2497BF5F00738D6A /* CGRect+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC1601B2497BF5F00738D6A /* CGRect+Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		DC87B2E22489304F00F1E3D3 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		DC87B2E32489307200F1E3D3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DCC1601924911D2700738D6A /* UIImage+Normalize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Normalize.swift"; sourceTree = "<group>"; };
+		DCC1601B2497BF5F00738D6A /* CGRect+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Utilities.swift"; sourceTree = "<group>"; };
 		DD49B3E94C5FC1F06E3B8534 /* Pods-Crowd Protect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowd Protect.release.xcconfig"; path = "Target Support Files/Pods-Crowd Protect/Pods-Crowd Protect.release.xcconfig"; sourceTree = "<group>"; };
 		FE1E4EC9F52AB571F70FFE4B /* Pods_editor_extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_editor_extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				DC4B1656248A8F6000E9513D /* UIColor+Extensions.swift */,
+				DCC1601B2497BF5F00738D6A /* CGRect+Utilities.swift */,
 				DC0C461F248A876F00B7C558 /* UIView+Rounded.swift */,
 				DCC1601924911D2700738D6A /* UIImage+Normalize.swift */,
 				DC87B2E32489307200F1E3D3 /* Constants.swift */,
@@ -442,6 +445,7 @@
 				3EA88799248A84A40063971B /* MainNavigationController.swift in Sources */,
 				DC0C4618248A74C700B7C558 /* Toolbar.swift in Sources */,
 				DC4B1657248A8F6000E9513D /* UIColor+Extensions.swift in Sources */,
+				DCC1601C2497BF5F00738D6A /* CGRect+Utilities.swift in Sources */,
 				DC0C460E248A5BCE00B7C558 /* Editable.swift in Sources */,
 				DC87B2E02489301400F1E3D3 /* NavigationBar.swift in Sources */,
 				DC4B1659248AA11500E9513D /* WrappedActivityController.swift in Sources */,

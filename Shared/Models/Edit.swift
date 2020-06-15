@@ -7,9 +7,9 @@
 //
 
 import CoreGraphics
-import Foundation
+import UIKit
 
 enum Edit {
-    case faceBlur(id: UUID, isEnabled: Bool)
-    case path(id: UUID, path: CGPath)
+    case faceRedactionToggle(_ id: UUID, isEnabled: Bool)
+    case addScribble(_ id: UUID, normalizedFrame: CGRect, normalizedPath: CGPath)
 }

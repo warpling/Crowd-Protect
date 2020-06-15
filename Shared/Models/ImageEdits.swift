@@ -30,19 +30,27 @@ class ImageEdits: MediaEditable<UIImage> {
     override var displayOutput: UIImage {
 
         var blurredFaces = Dictionary(uniqueKeysWithValues: faces.keys.map({ ($0, false) }))
+        var scribbles = [(CGRect, UIBezierPath)]()
+
         for edit in edits {
             switch edit {
-            case .faceBlur(let id, let isEnabled):
+            case .faceRedactionToggle(let id, let isEnabled):
                 blurredFaces[id] = isEnabled
 
-            default:
-                fatalError()
+            case .addScribble(_, let normalizedFrame, let normalizedPath):
+                let frame = Redactor.unnormalize(normalizedFrame, in: media.size).flippedY(frameHeight: media.size.height)
+                let scaledPath = UIBezierPath(cgPath: normalizedPath) // Copy
+                scaledPath.apply(CGAffineTransform(scaleX: media.size.width, y: media.size.height))
+                scribbles.append((frame, scaledPath))
+                break
             }
         }
 
-        let regionsToBlur = faces.compactMap { (key, faceInfo) -> CGRect? in
+        var regionsToBlur = faces.compactMap { (key, faceInfo) -> CGRect? in
             return blurredFaces[key]! ? faceInfo.frame : nil
         }
+
+        regionsToBlur.append(contentsOf: scribbles.map({ $0.0 }))
 
         let ciImage = redactor.blur(regions: regionsToBlur, in: media)
         let image = UIImage(ciImage: ciImage)

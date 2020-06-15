@@ -133,9 +133,17 @@ final class Redactor {
         }
     }
 
-    class func normalize(_ faceRect: CGRect, in size: CGSize) -> CGRect {
+    class func unnormalize(_ normalizedFrame: CGRect, in size: CGSize) -> CGRect {
+        let (maxWidth, maxHeight) = (size.width, size.height)
+        return CGRect(x: normalizedFrame.origin.x * maxWidth,
+                      y: normalizedFrame.origin.y * maxHeight,
+                      width: normalizedFrame.size.width * maxWidth,
+                      height: normalizedFrame.size.height * maxHeight)
+    }
+
+    class func normalize(_ frame: CGRect, in size: CGSize) -> CGRect {
         let (width, height) = (Int(size.width), Int(size.height))
-        return VNNormalizedRectForImageRect(faceRect, width, height)
+        return VNNormalizedRectForImageRect(frame, width, height)
     }
     
     func blur(regions: [CGRect], in image: Redactable) -> CIImage {

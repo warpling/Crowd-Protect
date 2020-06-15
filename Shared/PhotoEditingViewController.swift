@@ -89,6 +89,7 @@ extension PhotoEditingViewController : EditsDelegate {
 
 protocol MarkupEditsReceiver {
     func changedRedactedFace(id: UUID, isRedacted: Bool)
+    func addedScribble(id: UUID, normalizedFrame: CGRect, normalizedPath: CGPath)
 }
 
 extension PhotoEditingViewController : MarkupEditsReceiver {
@@ -98,7 +99,15 @@ extension PhotoEditingViewController : MarkupEditsReceiver {
             fatalError("Can't handle edits without an image")
         }
 
-        imageEdits.edits.append(.faceBlur(id: id, isEnabled: isRedacted))
+        imageEdits.edits.append(.faceRedactionToggle(id, isEnabled: isRedacted))
+    }
+
+    func addedScribble(id: UUID, normalizedFrame: CGRect, normalizedPath: CGPath) {
+        guard let imageEdits = imageEdits else {
+            fatalError("Can't handle edits without an image")
+        }
+
+        imageEdits.edits.append(.addScribble(id, normalizedFrame: normalizedFrame, normalizedPath: normalizedPath))
     }
 }
 
