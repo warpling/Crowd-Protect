@@ -6,12 +6,18 @@
 //  Copyright © 2020 Grow Pixel. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class MediaEditable<MediaType> : Editable {
 
     let media: MediaType
-    var edits = [Edit]()
+    var editsDelegate: EditsDelegate?
+
+    var edits = [Edit]() {
+        didSet {
+            editsDelegate?.editsDidChange()
+        }
+    }
 
     public init(_ media: MediaType) {
         self.media = media
@@ -21,6 +27,7 @@ class MediaEditable<MediaType> : Editable {
         get {
             // use CI pipeline to render display image/video
             return media
+//            return Compositor().
         }
     }
 
@@ -30,6 +37,8 @@ class MediaEditable<MediaType> : Editable {
             return media
         }
     }
+}
 
-
+protocol EditsDelegate {
+    func editsDidChange()
 }

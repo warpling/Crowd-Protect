@@ -12,12 +12,14 @@ import PhotosUI
 
 class PhotoEditingViewController : UIViewController {
 
-    var imageView: EditingImageView!
-    let toolbar = Toolbar()
+    var compositeView: ImageMarkupCompositeView?
+    var imageScrollView: UIImageScrollView?
 
+    let toolbar = Toolbar()
+    let redactor = Redactor()
+    
     init() {
         super.init(nibName: nil, bundle: nil)
-        imageView = EditingImageView(frame: .zero)
     }
 
     required init?(coder: NSCoder) {
@@ -26,12 +28,7 @@ class PhotoEditingViewController : UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(imageView)
         view.addSubview(toolbar)
-
-        imageView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
 
         toolbar.snp.makeConstraints { (make) in
             make.leading.bottom.trailing.equalToSuperview()
@@ -39,27 +36,76 @@ class PhotoEditingViewController : UIViewController {
         }
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        // TODO: Try to ensure the bottom of the photo can be edited and doesn't get stuck behind the toolbar
+//        additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: toolbar.bounds.height, right: 0)
+    }
+
 
     // MARK: -
 
     var imageEdits: ImageEdits? {
         didSet {
-            imageView.image = imageEdits?.displayOutput
 
-            if let imageEdits = imageEdits {
-                toolbar.isEnabled = true
-                toolbar.isUndoPossible = !imageEdits.edits.isEmpty
+            imageScrollView?.removeFromSuperview()
+            imageScrollView = nil
+
+            guard let imageEdits = imageEdits else { return }
+
+            compositeView = ImageMarkupCompositeView(imageEdits: imageEdits)
+            compositeView!.markupsView.markupEditsReceiver = self
+            imageEdits.editsDelegate = self
+
+            imageScrollView = UIImageScrollView(contentView: compositeView!)
+            view.insertSubview(imageScrollView!, belowSubview: toolbar)
+            imageScrollView!.snp.makeConstraints { (make) in
+                make.edges.equalToSuperview()
             }
+
+            toolbar.isEnabled = true
+            toolbar.isUndoPossible = !imageEdits.edits.isEmpty
+            toolbar.receiver = self
         }
     }
 
-    var imageEditable: ImageEdits? {
-        didSet {
-            imageView.image = imageEdits?.displayOutput
-         }
-    }
-
     func startEditing(with image: UIImage) {
-        imageEdits = ImageEdits(image)
+        let normalizedImage = image.normalized(orientation: image.imageOrientation)!
+        imageEdits = ImageEdits(normalizedImage)
+    }
+}
+
+// MARK: - EditsDelegate
+
+extension PhotoEditingViewController : EditsDelegate {
+    func editsDidChange() {
+        guard let imageEdits = imageEdits else { return }
+        toolbar.isUndoPossible = !imageEdits.edits.isEmpty
+        compositeView?.refresh()
+    }
+}
+
+// MARK: - MarkupEditsReceiver
+
+protocol MarkupEditsReceiver {
+    func changedRedactedFace(id: UUID, isRedacted: Bool)
+}
+
+extension PhotoEditingViewController : MarkupEditsReceiver {
+
+    func changedRedactedFace(id: UUID, isRedacted: Bool) {
+        guard let imageEdits = imageEdits else {
+            fatalError("Can't handle edits without an image")
+        }
+
+        imageEdits.edits.append(.faceBlur(id: id, isEnabled: isRedacted))
+    }
+}
+
+// MARK: - ToolbarReceiver
+
+extension PhotoEditingViewController : ToolbarReceiver {
+    func undo() {
+        imageEdits?.edits.removeLast()
     }
 }

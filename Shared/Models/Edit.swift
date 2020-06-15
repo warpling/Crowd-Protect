@@ -7,15 +7,9 @@
 //
 
 import CoreGraphics
+import Foundation
 
-protocol Edit {
-    
-}
-
-struct FaceBlurEdit : Edit {
-    let frame: CGRect
-}
-
-struct DrawBlurEdit: Edit {
-    let path: CGPath
+enum Edit {
+    case faceBlur(id: UUID, isEnabled: Bool)
+    case path(id: UUID, path: CGPath)
 }

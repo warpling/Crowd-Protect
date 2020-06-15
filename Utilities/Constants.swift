@@ -17,11 +17,13 @@ struct Constants {
         struct Toolbar {
             struct Tool {
 
-                static let activeText = UIColor.white
+                static let activeText = UIColor.label.withAlphaComponent(0.7)
                 static let inactiveText = UIColor.label
+                static let disabledText = UIColor.label.withAlphaComponent(0.5)
 
                 static let activeBackground = UIColor.systemIndigo
                 static let inactiveBackground = UIColor.systemGray4
+                static let disabledBackground = UIColor.systemGray4.withAlphaComponent(0.5)
             }
         }
     }

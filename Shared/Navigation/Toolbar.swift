@@ -10,6 +10,8 @@ import UIKit
 
 class Toolbar: ButtonBar {
 
+    var receiver: ToolbarReceiver?
+
     let toolsScrollView = UIScrollView { scrollView in
         scrollView.isDirectionalLockEnabled = true
         scrollView.showsVerticalScrollIndicator = false
@@ -24,12 +26,12 @@ class Toolbar: ButtonBar {
     }
 
     let faceBlurButton: CustomButton = {
-        let button = Toolbar.newToolbarButton(iconName: "person.crop.circle.badge.xmark", title: "Face Blur")
+        let button = Toolbar.newToolbarButton(iconName: "person.crop.circle.badge.xmark", title: "Faces")
         return button
     }()
 
     let drawBlurButton: CustomButton = {
-        let button = Toolbar.newToolbarButton(iconName: "scribble", title: "Draw Blur")
+        let button = Toolbar.newToolbarButton(iconName: "scribble", title: "Draw")
         return button
     }()
 
@@ -42,9 +44,10 @@ class Toolbar: ButtonBar {
         button.setImage(undoFilledIcon, for: .normal)
         button.setImage(undoIcon, for: .disabled)
 
-        button.setImageColor(Constants.Colors.Toolbar.Tool.activeText, for: .selected)
+        button.setImageColor(Constants.Colors.Toolbar.Tool.activeText,   for: .selected)
         button.setImageColor(Constants.Colors.Toolbar.Tool.inactiveText, for: .normal)
-        button.setImageColor(Constants.Colors.Toolbar.Tool.activeText, for: .highlighted)
+        button.setImageColor(Constants.Colors.Toolbar.Tool.activeText,   for: .highlighted)
+        button.setImageColor(Constants.Colors.Toolbar.Tool.disabledText, for: .disabled)
     }
 
     init() {
@@ -82,7 +85,7 @@ class Toolbar: ButtonBar {
         faceBlurButton.isSelected = true
         faceBlurButton.isEnabled = false
         drawBlurButton.isEnabled = false
-        undoButton.isEnabled = false
+        undoButton.isEnabled = true
     }
 
     required init?(coder: NSCoder) {
@@ -94,7 +97,7 @@ class Toolbar: ButtonBar {
     var isEnabled = false {
         didSet {
             faceBlurButton.isEnabled = isEnabled
-            drawBlurButton.isEnabled = isEnabled
+//            drawBlurButton.isEnabled = isEnabled
         }
     }
 
@@ -115,9 +118,8 @@ class Toolbar: ButtonBar {
     }
 
     @objc func undo() {
-
+        receiver?.undo()
     }
-
 
     class func newToolbarButton(iconName: String, title: String) -> CustomButton {
         return CustomButton { button in
@@ -130,21 +132,28 @@ class Toolbar: ButtonBar {
             button.setImage(icon, for: .normal)
             button.setTitle(title, for: .normal)
 
-            button.setBackgroundColor(Constants.Colors.Toolbar.Tool.activeBackground, for: .selected)
+            button.setBackgroundColor(Constants.Colors.Toolbar.Tool.activeBackground,   for: .selected)
             button.setBackgroundColor(Constants.Colors.Toolbar.Tool.inactiveBackground, for: .normal)
             button.setBackgroundColor(Constants.Colors.Toolbar.Tool.inactiveBackground, for: .highlighted)
+            button.setBackgroundColor(Constants.Colors.Toolbar.Tool.disabledBackground, for: .disabled)
 
-            button.setTitleColor(Constants.Colors.Toolbar.Tool.activeText, for: .selected)
+            button.setTitleColor(Constants.Colors.Toolbar.Tool.activeText,   for: .selected)
             button.setTitleColor(Constants.Colors.Toolbar.Tool.inactiveText, for: .normal)
-            button.setTitleColor(Constants.Colors.Toolbar.Tool.activeText, for: .highlighted)
+            button.setTitleColor(Constants.Colors.Toolbar.Tool.activeText,   for: .highlighted)
+            button.setTitleColor(Constants.Colors.Toolbar.Tool.disabledText, for: .disabled)
 
-            button.setImageColor(Constants.Colors.Toolbar.Tool.activeText, for: .selected)
+            button.setImageColor(Constants.Colors.Toolbar.Tool.activeText,   for: .selected)
             button.setImageColor(Constants.Colors.Toolbar.Tool.inactiveText, for: .normal)
-            button.setImageColor(Constants.Colors.Toolbar.Tool.activeText, for: .highlighted)
+            button.setImageColor(Constants.Colors.Toolbar.Tool.activeText,   for: .highlighted)
+            button.setImageColor(Constants.Colors.Toolbar.Tool.disabledText, for: .disabled)
 
             let contentPadding = UIEdgeInsets(top: 4, left: 10, bottom: 4, right: 12)
             button.setInsets(forContentPadding: contentPadding,
                              imageTitlePadding: Constants.Metrics.Buttons.iconTitleSpacing)
         }
     }
+}
+
+protocol ToolbarReceiver {
+    func undo()
 }

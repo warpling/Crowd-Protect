@@ -10,31 +10,38 @@ import UIKit
 
 class ImageMarkupCompositeView: UIView {
 
-    let imageScrollView: UIImageScrollView
+    let imageEdits: ImageEdits
+    let imageView = UIImageView()
     let markupsView: MarkupsView
 
     init(imageEdits: ImageEdits) {
 
+        self.imageEdits = imageEdits
         let image = imageEdits.media
-        imageScrollView = UIImageScrollView(image: image)
-        markupsView = MarkupsView(size: image.size, faces: imageEdits.normalizedFaceRects)
+
+        imageView.image = imageEdits.displayOutput
+        markupsView = MarkupsView(size: image.size, faces: imageEdits.faces)
 
         super.init(frame: .zero)
 
-        addSubview(imageScrollView)
+        addSubview(imageView)
         addSubview(markupsView)
 
-        imageScrollView.snp.makeConstraints { (make) in
+        imageView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
 
-        markupsView.isUserInteractionEnabled = false
         markupsView.snp.makeConstraints { (make) in
-            make.edges.equalTo(imageScrollView.imageView)
+            make.edges.equalTo(imageView)
         }
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    func refresh() {
+        imageView.image = imageEdits.displayOutput
+    }
+
 }
