@@ -20,7 +20,7 @@ protocol MarkupVisual: UIView {
     func tapped()
 }
 
-class MarkupView: UIView, MarkupVisual {
+class MarkupView: UIControl, MarkupVisual {
     let id: UUID
     let normalizedFrame: CGRect
 
@@ -58,6 +58,7 @@ class MarkupView: UIView, MarkupVisual {
 
         super.init(frame: .zero)
 
+        hintingView.isUserInteractionEnabled = false
         addSubview(hintingView)
         specularView.contentMode = .scaleToFill
 
