@@ -99,11 +99,15 @@ final class Redactor {
         guard let context = CGContext.context(data: nil, size: size, bytesPerRow: size.width, format: .mask) else {
             return nil
         }
-        
+
+        // Setup the mask
         context.setFillColor(CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 1))
         context.fill(CGRect(origin: .zero, size: CGSize(integralSize: size)))
         context.setFillColor(CGColor(srgbRed: 1, green: 1, blue: 1, alpha: 1))
-        context.fill(regions)
+        // Mask out the faces
+        for region in regions {
+            context.fillEllipse(in: region)
+        }
         
         guard let image = context.makeImage() else {
             return nil
