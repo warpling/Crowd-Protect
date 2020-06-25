@@ -17,7 +17,7 @@ struct Constants {
         struct Toolbar {
             struct Tool {
 
-                static let activeText = UIColor.label.withAlphaComponent(0.7)
+                static let activeText = UIColor.white.withAlphaComponent(0.9)
                 static let inactiveText = UIColor.label
                 static let disabledText = UIColor.label.withAlphaComponent(0.5)
 
@@ -35,4 +35,8 @@ struct Constants {
             static let iconTitleSpacing: CGFloat = 8
         }
     }
+}
+
+enum EditMode {
+    case faceBlur, drawBlur
 }

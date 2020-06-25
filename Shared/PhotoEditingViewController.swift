@@ -13,7 +13,13 @@ import PhotosUI
 class PhotoEditingViewController : UIViewController {
 
     var compositeView: ImageMarkupCompositeView?
-    var imageScrollView: UIImageScrollView?
+    var imageScrollView: UIImageScrollView? {
+        didSet {
+            imageScrollView?.didZoom = { [weak self] scrollView in
+                self?.compositeView?.markupsView.setContentScale(scrollView.zoomScale, minScale: scrollView.minimumZoomScale)
+            }
+        }
+    }
 
     let toolbar = Toolbar()
     let redactor = Redactor()
@@ -53,7 +59,7 @@ class PhotoEditingViewController : UIViewController {
 
             guard let imageEdits = imageEdits else { return }
 
-            compositeView = ImageMarkupCompositeView(imageEdits: imageEdits)
+            compositeView = ImageMarkupCompositeView(imageEdits: imageEdits, editMode: toolbar.currentMode)
             compositeView!.markupsView.markupEditsReceiver = self
             imageEdits.editsDelegate = self
 
@@ -63,8 +69,9 @@ class PhotoEditingViewController : UIViewController {
                 make.edges.equalToSuperview()
             }
 
-            toolbar.isEnabled = true
+            toolbar.isFaceToolEnabled = !imageEdits.faces.isEmpty
             toolbar.isUndoPossible = !imageEdits.edits.isEmpty
+            toolbar.drawBlurSelected()
             toolbar.receiver = self
         }
     }
@@ -78,6 +85,34 @@ class PhotoEditingViewController : UIViewController {
 // MARK: - EditsDelegate
 
 extension PhotoEditingViewController : EditsDelegate {
+    func didRemoveEdit(_ edit: Edit) {
+        if let markup: Markup = {
+            switch edit {
+            case .addScribble(let id, let normalizedFrame, let normalizedPath):
+                return .scribble(id: id, normalizedFrame: normalizedFrame, normalizedPath: normalizedPath)
+            default:
+                return nil
+            }
+            }() {
+            compositeView?.markupsView.removeMarkup(markup)
+        }
+        editsDidChange()
+    }
+
+    func didAddEdit(_ edit: Edit) {
+        if let markup: Markup = {
+            switch edit {
+            case .addScribble(let id, let normalizedFrame, let normalizedPath):
+                return .scribble(id: id, normalizedFrame: normalizedFrame, normalizedPath: normalizedPath)
+            default:
+                return nil
+            }
+            }() {
+            compositeView?.markupsView.addMarkup(markup)
+        }
+        editsDidChange()
+    }
+
     func editsDidChange() {
         guard let imageEdits = imageEdits else { return }
         toolbar.isUndoPossible = !imageEdits.edits.isEmpty
@@ -99,7 +134,7 @@ extension PhotoEditingViewController : MarkupEditsReceiver {
             fatalError("Can't handle edits without an image")
         }
 
-        imageEdits.edits.append(.faceRedactionToggle(id, isEnabled: isRedacted))
+        imageEdits.addEdit(.faceRedactionToggle(id, isEnabled: isRedacted))
     }
 
     func addedScribble(id: UUID, normalizedFrame: CGRect, normalizedPath: CGPath) {
@@ -107,7 +142,7 @@ extension PhotoEditingViewController : MarkupEditsReceiver {
             fatalError("Can't handle edits without an image")
         }
 
-        imageEdits.edits.append(.addScribble(id, normalizedFrame: normalizedFrame, normalizedPath: normalizedPath))
+        imageEdits.addEdit(.addScribble(id, normalizedFrame: normalizedFrame, normalizedPath: normalizedPath))
     }
 }
 
@@ -115,6 +150,11 @@ extension PhotoEditingViewController : MarkupEditsReceiver {
 
 extension PhotoEditingViewController : ToolbarReceiver {
     func undo() {
-        imageEdits?.edits.removeLast()
+        imageEdits?.removeLastEdit()
+    }
+
+    func modeDidChange(_ mode: EditMode) {
+        imageScrollView?.isScrollEnabled = mode != .drawBlur
+        compositeView?.currentEditMode = mode
     }
 }

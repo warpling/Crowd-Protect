@@ -20,7 +20,7 @@
             landmarkType = "3">
             <Locations>
                <Location
-                  uuid = "AAFAB12F-254B-4CC2-ABAC-D378E34FB870 - a27814e7a4707ce5"
+                  uuid = "AAFAB12F-254B-4CC2-ABAC-D378E34FB870 - 753ad766f2070c77"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -35,7 +35,7 @@
                   offsetFromSymbolStart = "96">
                </Location>
                <Location
-                  uuid = "AAFAB12F-254B-4CC2-ABAC-D378E34FB870 - 325bc8c7998fac59"
+                  uuid = "AAFAB12F-254B-4CC2-ABAC-D378E34FB870 - e5190b46cff8dccb"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -50,7 +50,7 @@
                   offsetFromSymbolStart = "172">
                </Location>
                <Location
-                  uuid = "AAFAB12F-254B-4CC2-ABAC-D378E34FB870 - c22298b1df850d2"
+                  uuid = "AAFAB12F-254B-4CC2-ABAC-D378E34FB870 - db60ea0a4b8f2040"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -102,8 +102,8 @@
             filePath = "Shared/PhotoEditingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "changedRedactedFace(id:isRedacted:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -118,22 +118,22 @@
             filePath = "Shared/MarkupView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236">
+            startingLineNumber = "343"
+            endingLineNumber = "343">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A437037A-8210-476F-A5BD-38D2833E8FD9"
+            uuid = "5E111A99-3110-409C-BDC3-E4232F52DAE4"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shared/MarkupView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
             landmarkName = "updateHintingEffect()"
             landmarkType = "7">
          </BreakpointContent>

@@ -33,6 +33,7 @@ final class Compositor: NSObject, AVVideoCompositing {
         }
         
         do {
+            // TODO: Update to support arbitrary regions
             let regions = try redactor.faces(in: frame).map({ $0.frame })
             let image = redactor.blur(regions: regions, in: frame)
             redactor.context.render(image, to: frame)

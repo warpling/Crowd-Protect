@@ -14,7 +14,22 @@ class MarkupsView: UIView {
     var markupViews = [MarkupVisual]()
     var markupEditsReceiver: MarkupEditsReceiver?
 
-    init(size: CGSize, faces: [UUID : Redactor.FaceInfo]) {
+    var currentEditMode: EditMode {
+        didSet {
+            for markupView in markupViews {
+                switch markupView.markup {
+                case .faceRedaction:
+                    markupView.isEditing = currentEditMode == .faceBlur
+                case .scribble:
+                    markupView.isEditing = currentEditMode == .drawBlur
+                }
+            }
+
+            isDrawingEnabled = currentEditMode == .drawBlur
+        }
+    }
+
+    init(size: CGSize, faces: [UUID : Redactor.FaceInfo], editMode: EditMode) {
 
         markups = faces.map { (id, faceInfo) -> Markup in
             // Flip to the UI coordinate system
@@ -22,10 +37,10 @@ class MarkupsView: UIView {
             return Markup.faceRedaction(id: id, normalizedFrame: uiFrame)
         }
 
-        super.init(frame: CGRect(origin: .zero, size: size))
+        self.currentEditMode = editMode
+        isDrawingEnabled = editMode == .drawBlur
 
-        drawingGesture = UITapGestureRecognizer(target: self, action: #selector(drawing))
-        addGestureRecognizer(drawingGesture)
+        super.init(frame: CGRect(origin: .zero, size: size))
 
         addMarkups(markups)
     }
@@ -46,17 +61,18 @@ class MarkupsView: UIView {
             let markupView = { () -> MarkupVisual in
                 switch markup {
 
-                case .faceRedaction(let id, let normalizedFrame):
-                    let markupView = FaceMarkupView(id: id, normalizedFrame: normalizedFrame)
+                case .faceRedaction(_, let normalizedFrame):
+                    let markupView = FaceMarkupView(markup: markup, normalizedFrame: normalizedFrame)
                     markupView.alpha = 0.5
                     markupView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(markupTapped(_:))))
+                    markupView.isEditing = currentEditMode == .faceBlur
                     return markupView
 
-                case .scribble(let id, let normalizedFrame, let normalizedPath):
-                    let markupView = ScribbleMarkupView(id: id, normalizedFrame: normalizedFrame, normalizedPath: normalizedPath)
+                case .scribble(_, let normalizedFrame, let normalizedPath):
+                    let markupView = ScribbleMarkupView(markup: markup, normalizedFrame: normalizedFrame, normalizedPath: normalizedPath)
                     markupView.alpha = 0.5
                     markupView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(markupTapped(_:))))
-                    markupEditsReceiver?.addedScribble(id: id, normalizedFrame: normalizedFrame, normalizedPath: normalizedPath)
+                    markupView.isEditing = currentEditMode == .drawBlur
                     return markupView
                 }
             }()
@@ -75,36 +91,102 @@ class MarkupsView: UIView {
     }
 
     func removeMarkup(_ markup: Markup) {
-//        removeMarkups([markup])
+        removeMarkups([markup])
     }
 
     func removeMarkups(_ markups: [Markup]) {
-//        self.markups.
+        self.markups.removeAll(where: { markups.contains($0) })
+
+        let visualsToRemove = markupViews.filter { (visual) -> Bool in
+            markups.contains(visual.markup)
+        }
+
+        for visual in visualsToRemove {
+            visual.removeFromSuperview()
+        }
+    }
+
+    func setContentScale(_ scale: CGFloat, minScale: CGFloat) {
+        for markup in markupViews {
+            markup.minScale = minScale
+            markup.scale = scale
+        }
     }
 
     // MARK: - Drawing
 
-    var drawingGesture: UITapGestureRecognizer!
-
-    var isDrawingEnabled = false {
+    var isDrawing = false {
         didSet {
+            if isDrawing {
+                tempScribbleLayer.frame = bounds
+                tempScribbleLayer.masksToBounds = true
+                tempScribbleLayer.path = tempScribblePath.cgPath
+                tempScribbleLayer.strokeColor = UIColor.systemIndigo.cgColor
+                tempScribbleLayer.lineWidth = 44
+                tempScribbleLayer.fillColor = UIColor.clear.cgColor
 
+                layer.addSublayer(tempScribbleLayer)
+            } else {
+                tempScribbleLayer.removeFromSuperlayer()
+            }
         }
     }
+    var lastPoint: CGPoint?
+    var tempScribbleLayer = CAShapeLayer()
+    var tempScribblePath = UIBezierPath()
 
-    @objc func drawing(_ gesture: UIGestureRecognizer) {
-        switch gesture.state {
-        case .ended:
-            let location = gesture.location(in: self)
-            let size: CGFloat = 132
-            let frame = CGRect(x: location.x - size/2, y: location.y - size/2, width: size, height: size)
-            let normalizedFrame = Redactor.normalize(frame, in: bounds.size)
-            let normalizedPath = UIBezierPath(ovalIn: CGRect(origin: .zero, size: normalizedFrame.size)).cgPath
-            addMarkup(.scribble(id: UUID(), normalizedFrame: normalizedFrame, normalizedPath: normalizedPath))
+    var isDrawingEnabled = false
 
-        default:
-            break
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard isDrawingEnabled, let touch = touches.first else { return }
+        lastPoint = touch.location(in: self)
+        startDrawing(at: lastPoint!)
+    }
+
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard isDrawingEnabled else { return }
+
+        guard let lastPoint = lastPoint, let touch = touches.first else {
+            return
         }
+
+        isDrawing = true
+        let currentPoint = touch.location(in: self)
+        drawLine(from: lastPoint, to: currentPoint)
+
+        self.lastPoint = currentPoint
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard isDrawingEnabled else { return }
+        endDrawing(at: lastPoint)
+    }
+
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard isDrawingEnabled else { return }
+        endDrawing(at: lastPoint)
+    }
+
+    func startDrawing(at startPoint: CGPoint) {
+        tempScribblePath = UIBezierPath()
+        tempScribblePath.move(to: startPoint)
+        isDrawing = true
+    }
+
+    func drawLine(from fromPoint: CGPoint, to toPoint: CGPoint) {
+        tempScribblePath.addLine(to: toPoint)
+    }
+
+    func endDrawing(at lastPoint: CGPoint?) {
+        isDrawing = false
+        // draw a single point
+        if let finalPoint = lastPoint {
+            drawLine(from: finalPoint, to: finalPoint)
+        }
+
+        let normalizedFrame = tempScribblePath.bounds.normalize(within: bounds.size)
+        let normalizedPath = tempScribblePath.normalize(within: tempScribblePath.bounds).cgPath
+        markupEditsReceiver?.addedScribble(id: UUID(), normalizedFrame: normalizedFrame, normalizedPath: normalizedPath)
     }
 }
 
@@ -113,7 +195,8 @@ extension MarkupsView {
         switch sender.view {
         case let faceMarkupView as FaceMarkupView:
             faceMarkupView.tapped()
-            markupEditsReceiver?.changedRedactedFace(id: faceMarkupView.id, isRedacted: faceMarkupView.isFilled)
+            guard case .faceRedaction(let id, _) = faceMarkupView.markup else { fatalError() }
+            markupEditsReceiver?.changedRedactedFace(id: id, isRedacted: faceMarkupView.isFilled)
 
         default: break
         }

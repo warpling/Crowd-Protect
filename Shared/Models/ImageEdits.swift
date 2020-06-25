@@ -38,26 +38,32 @@ class ImageEdits: MediaEditable<UIImage> {
                 blurredFaces[id] = isEnabled
 
             case .addScribble(_, let normalizedFrame, let normalizedPath):
-                let frame = Redactor.unnormalize(normalizedFrame, in: media.size).flippedY(frameHeight: media.size.height)
-                let scaledPath = UIBezierPath(cgPath: normalizedPath) // Copy
-                scaledPath.apply(CGAffineTransform(scaleX: media.size.width, y: media.size.height))
+                let frame = normalizedFrame.unnormalize(using: media.size).flippedY(frameHeight: media.size.height)
+                let scaledPath = UIBezierPath(cgPath: normalizedPath).unnormalize(within: frame.size)
+                // Flip path because flipped coordinate system
+                scaledPath.apply(CGAffineTransform(scaleX: 1, y: -1).translatedBy(x: 0, y: -scaledPath.bounds.height))
                 scribbles.append((frame, scaledPath))
                 break
             }
         }
 
-        var regionsToBlur = faces.compactMap { (key, faceInfo) -> CGRect? in
-            return blurredFaces[key]! ? faceInfo.frame : nil
+        var pathsToBlur = faces.compactMap { (key, faceInfo) -> CGPath? in
+            return blurredFaces[key]! ? UIBezierPath(ovalIn: faceInfo.frame).cgPath : nil
         }
 
-        regionsToBlur.append(contentsOf: scribbles.map({ $0.0 }))
+        pathsToBlur.append(contentsOf: scribbles.map({
+            let path = UIBezierPath(cgPath: $0.1.cgPath)
+            // Draw the path absolutely rather than relative to a frame we're not passing along
+            path.apply(CGAffineTransform(translationX: $0.0.origin.x, y: $0.0.origin.y))
+            return path.cgPath
+        }))
 
-        let ciImage = redactor.blur(regions: regionsToBlur, in: media)
+        let ciImage = redactor.blur(paths: pathsToBlur, in: media)
         let image = UIImage(ciImage: ciImage)
         return image
     }
 
     override var finalOutput: UIImage {
-        return media
+        return displayOutput
     }
 }

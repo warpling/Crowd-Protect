@@ -35,11 +35,12 @@
 		DC4B1661248E5E9200E9513D /* MarkupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1660248E5E9200E9513D /* MarkupsView.swift */; };
 		DC4B1663248E7D4800E9513D /* UIImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B1662248E7D4700E9513D /* UIImageScrollView.swift */; };
 		DC531DDC2487FD4F00DED632 /* ImageMarkupCompositeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC531DDA2487FCCC00DED632 /* ImageMarkupCompositeView.swift */; };
+		DC6DFBED249BB8BE009661A4 /* UIBezierPath+Normalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6DFBEC249BB8BE009661A4 /* UIBezierPath+Normalize.swift */; };
+		DC6DFBEF249BC106009661A4 /* CGRect+Normalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6DFBEE249BC106009661A4 /* CGRect+Normalize.swift */; };
 		DC87B2DE24892FAD00F1E3D3 /* ButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2DD24892FAD00F1E3D3 /* ButtonBar.swift */; };
 		DC87B2E02489301400F1E3D3 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2DF2489301400F1E3D3 /* NavigationBar.swift */; };
 		DC87B2E42489307200F1E3D3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC87B2E32489307200F1E3D3 /* Constants.swift */; };
 		DCC1601A24911D2700738D6A /* UIImage+Normalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC1601924911D2700738D6A /* UIImage+Normalize.swift */; };
-		DCC1601C2497BF5F00738D6A /* CGRect+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC1601B2497BF5F00738D6A /* CGRect+Utilities.swift */; };
 		DCC1601E2497D19100738D6A /* MarkupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC1601D2497D19100738D6A /* MarkupView.swift */; };
 		DCC16020249BA20600738D6A /* CALayer+AnimationPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC1601F249BA20600738D6A /* CALayer+AnimationPersistence.swift */; };
 /* End PBXBuildFile section */
@@ -106,12 +107,13 @@
 		DC4B1660248E5E9200E9513D /* MarkupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkupsView.swift; sourceTree = "<group>"; };
 		DC4B1662248E7D4700E9513D /* UIImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageScrollView.swift; sourceTree = "<group>"; };
 		DC531DDA2487FCCC00DED632 /* ImageMarkupCompositeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMarkupCompositeView.swift; sourceTree = "<group>"; };
+		DC6DFBEC249BB8BE009661A4 /* UIBezierPath+Normalize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Normalize.swift"; sourceTree = "<group>"; };
+		DC6DFBEE249BC106009661A4 /* CGRect+Normalize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Normalize.swift"; sourceTree = "<group>"; };
 		DC87B2DD24892FAD00F1E3D3 /* ButtonBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBar.swift; sourceTree = "<group>"; };
 		DC87B2DF2489301400F1E3D3 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		DC87B2E22489304F00F1E3D3 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		DC87B2E32489307200F1E3D3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DCC1601924911D2700738D6A /* UIImage+Normalize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Normalize.swift"; sourceTree = "<group>"; };
-		DCC1601B2497BF5F00738D6A /* CGRect+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Utilities.swift"; sourceTree = "<group>"; };
 		DCC1601D2497D19100738D6A /* MarkupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkupView.swift; sourceTree = "<group>"; };
 		DCC1601F249BA20600738D6A /* CALayer+AnimationPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+AnimationPersistence.swift"; sourceTree = "<group>"; };
 		DD49B3E94C5FC1F06E3B8534 /* Pods-Crowd Protect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowd Protect.release.xcconfig"; path = "Target Support Files/Pods-Crowd Protect/Pods-Crowd Protect.release.xcconfig"; sourceTree = "<group>"; };
@@ -238,8 +240,9 @@
 			children = (
 				DC4B1656248A8F6000E9513D /* UIColor+Extensions.swift */,
 				DCC1601F249BA20600738D6A /* CALayer+AnimationPersistence.swift */,
-				DCC1601B2497BF5F00738D6A /* CGRect+Utilities.swift */,
+				DC6DFBEE249BC106009661A4 /* CGRect+Normalize.swift */,
 				DC0C461F248A876F00B7C558 /* UIView+Rounded.swift */,
+				DC6DFBEC249BB8BE009661A4 /* UIBezierPath+Normalize.swift */,
 				DCC1601924911D2700738D6A /* UIImage+Normalize.swift */,
 				DC87B2E32489307200F1E3D3 /* Constants.swift */,
 				DC87B2E22489304F00F1E3D3 /* Configurable.swift */,
@@ -448,11 +451,11 @@
 				3E5FFDB9248A91F400825D76 /* Configurable.swift in Sources */,
 				DC3D216124867CDA004AEA82 /* PhotoEditingViewController.swift in Sources */,
 				DC0C4616248A5CF100B7C558 /* VideoEdits.swift in Sources */,
+				DC6DFBEF249BC106009661A4 /* CGRect+Normalize.swift in Sources */,
 				D02E4864248C42D700E25C74 /* Redactor.swift in Sources */,
 				3EA88799248A84A40063971B /* MainNavigationController.swift in Sources */,
 				DC0C4618248A74C700B7C558 /* Toolbar.swift in Sources */,
 				DC4B1657248A8F6000E9513D /* UIColor+Extensions.swift in Sources */,
-				DCC1601C2497BF5F00738D6A /* CGRect+Utilities.swift in Sources */,
 				DCC1601E2497D19100738D6A /* MarkupView.swift in Sources */,
 				DC0C460E248A5BCE00B7C558 /* Editable.swift in Sources */,
 				DC87B2E02489301400F1E3D3 /* NavigationBar.swift in Sources */,
@@ -461,6 +464,7 @@
 				DC87B2DE24892FAD00F1E3D3 /* ButtonBar.swift in Sources */,
 				DC4B165F248BE6B700E9513D /* CVPixelBuffer+Extensions.swift in Sources */,
 				3E5FFDB8248A915300825D76 /* Buttons.swift in Sources */,
+				DC6DFBED249BB8BE009661A4 /* UIBezierPath+Normalize.swift in Sources */,
 				DC531DDC2487FD4F00DED632 /* ImageMarkupCompositeView.swift in Sources */,
 				DCC1601A24911D2700738D6A /* UIImage+Normalize.swift in Sources */,
 			);

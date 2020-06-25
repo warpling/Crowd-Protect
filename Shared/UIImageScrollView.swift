@@ -63,7 +63,9 @@ class UIImageScrollView: UIScrollView, UIScrollViewDelegate {
     }
 
 
-    //MARK:- UIScrollViewDelegate
+    //MARK: - UIScrollViewDelegate
+
+    public var didZoom: ((_ scrollView: UIScrollView) -> Void)?
 
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return contentView
@@ -71,6 +73,7 @@ class UIImageScrollView: UIScrollView, UIScrollViewDelegate {
 
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         updateConstraintsForSize(bounds.size)
+        didZoom?(scrollView)
     }
 
     func updateConstraintsForSize(_ size: CGSize) {

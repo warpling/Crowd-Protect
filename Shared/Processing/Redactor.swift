@@ -95,7 +95,7 @@ final class Redactor {
 
     let context = CIContext()
 
-    private static func mask(size: CVPixelBuffer.IntegralSize, regions: [CGRect]) -> CIImage? {
+    private static func mask(size: CVPixelBuffer.IntegralSize, paths: [CGPath]) -> CIImage? {
         guard let context = CGContext.context(data: nil, size: size, bytesPerRow: size.width, format: .mask) else {
             return nil
         }
@@ -104,18 +104,20 @@ final class Redactor {
         context.setFillColor(CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 1))
         context.fill(CGRect(origin: .zero, size: CGSize(integralSize: size)))
         context.setFillColor(CGColor(srgbRed: 1, green: 1, blue: 1, alpha: 1))
-        // Mask out the faces
-        for region in regions {
-            context.fillEllipse(in: region)
+
+        // Mask out the paths
+        for path in paths {
+            context.addPath(path)
+            context.fillPath()
         }
-        
+
         guard let image = context.makeImage() else {
             return nil
         }
-        
+
         return CIImage(cgImage: image)
     }
-    
+
     func faces(in image: Redactable) throws -> [FaceInfo] {
         var result: Result<VNDetectFaceRectanglesRequest, Error>?
         let request = VNDetectFaceRectanglesRequest { detectResult in
@@ -130,27 +132,19 @@ final class Redactor {
             let height = CGFloat(image.integralSize.height)
             let frame = CGRect(x: boundingBox.minX * width, y: boundingBox.minY * height, width: width * boundingBox.width, height: height * boundingBox.height)
             let size = CGSize(width: image.integralSize.width, height: image.integralSize.height)
-            let normalizedFrame = Redactor.normalize(frame, in: size)
+            let normalizedFrame = frame.normalize(within: size)
             let roll = CGFloat(observation.roll?.floatValue ?? 0)
             let yaw = CGFloat(observation.yaw?.floatValue ?? 0)
             return FaceInfo(frame: frame, normalizedFrame: normalizedFrame, roll: roll, yaw: yaw)
         }
     }
 
-    class func unnormalize(_ normalizedFrame: CGRect, in size: CGSize) -> CGRect {
-        let (maxWidth, maxHeight) = (size.width, size.height)
-        return CGRect(x: normalizedFrame.origin.x * maxWidth,
-                      y: normalizedFrame.origin.y * maxHeight,
-                      width: normalizedFrame.size.width * maxWidth,
-                      height: normalizedFrame.size.height * maxHeight)
+    func blur(regions: [CGRect], in image: Redactable) -> CIImage {
+        let paths = regions.map({ UIBezierPath(rect: $0).cgPath })
+        return blur(paths: paths, in: image)
     }
 
-    class func normalize(_ frame: CGRect, in size: CGSize) -> CGRect {
-        let (width, height) = (Int(size.width), Int(size.height))
-        return VNNormalizedRectForImageRect(frame, width, height)
-    }
-    
-    func blur(regions: [CGRect], in image: Redactable) -> CIImage {
+    func blur(paths: [CGPath], in image: Redactable) -> CIImage {
         let inputImage = image.ciImage
 
         let pixellate = CIFilter.pixellate()
@@ -160,8 +154,8 @@ final class Redactor {
         let blendWithMask = CIFilter.blendWithMask()
         blendWithMask.backgroundImage = inputImage
         blendWithMask.inputImage = pixellate.outputImage
-        blendWithMask.maskImage = Self.mask(size: image.integralSize, regions: regions)
-        
+        blendWithMask.maskImage = Self.mask(size: image.integralSize, paths: paths)
+
         return blendWithMask.outputImage!
     }
     

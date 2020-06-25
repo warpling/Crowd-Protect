@@ -9,7 +9,15 @@
 import CoreGraphics
 import UIKit
 
-enum Edit {
+enum Edit : Hashable {
     case faceRedactionToggle(_ id: UUID, isEnabled: Bool)
     case addScribble(_ id: UUID, normalizedFrame: CGRect, normalizedPath: CGPath)
+
+    func hash(into hasher: inout Hasher) {
+        switch self {
+        case .faceRedactionToggle(let id, _),
+             .addScribble(let id, _, _):
+            hasher.combine(id)
+        }
+    }
 }

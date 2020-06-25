@@ -11,13 +11,6 @@ import UIKit
 class MediaEditable<MediaType> : Editable {
 
     let media: MediaType
-    var editsDelegate: EditsDelegate?
-
-    var edits = [Edit]() {
-        didSet {
-            editsDelegate?.editsDidChange()
-        }
-    }
 
     public init(_ media: MediaType) {
         self.media = media
@@ -37,8 +30,26 @@ class MediaEditable<MediaType> : Editable {
             return media
         }
     }
+
+    // MARK: - Edits
+
+    var editsDelegate: EditsDelegate?
+
+    // TODO: Find a way to make this private(set)
+    var edits = [Edit]()
+
+    func addEdit(_ edit: Edit) {
+        edits.append(edit)
+        editsDelegate?.didAddEdit(edit)
+    }
+
+    func removeLastEdit() {
+        let removedEdit = edits.removeLast()
+        editsDelegate?.didRemoveEdit(removedEdit)
+    }
 }
 
 protocol EditsDelegate {
-    func editsDidChange()
+    func didRemoveEdit(_ edit: Edit)
+    func didAddEdit(_ edit: Edit)
 }

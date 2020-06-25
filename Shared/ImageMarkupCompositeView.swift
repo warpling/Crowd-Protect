@@ -14,13 +14,21 @@ class ImageMarkupCompositeView: UIView {
     let imageView = UIImageView()
     let markupsView: MarkupsView
 
-    init(imageEdits: ImageEdits) {
+    var currentEditMode: EditMode {
+        didSet {
+            markupsView.currentEditMode = currentEditMode
+        }
+    }
+
+    init(imageEdits: ImageEdits, editMode: EditMode) {
 
         self.imageEdits = imageEdits
-        let image = imageEdits.media
+        self.currentEditMode = editMode
 
+        let image = imageEdits.media
         imageView.image = imageEdits.displayOutput
-        markupsView = MarkupsView(size: image.size, faces: imageEdits.faces)
+
+        markupsView = MarkupsView(size: image.size, faces: imageEdits.faces, editMode: editMode)
 
         super.init(frame: .zero)
 
@@ -43,5 +51,4 @@ class ImageMarkupCompositeView: UIView {
     func refresh() {
         imageView.image = imageEdits.displayOutput
     }
-
 }
